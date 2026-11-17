@@ -1,0 +1,7 @@
+maisonproof_verify.settings:
+  path: "/admin/config/services/maisonproof"
+  defaults:
+    _form: "\Drupal\maisonproof_verify\Form\SettingsForm"
+    _title: "MaisonProof"
+  requirements:
+    _permission: "administer site configuration"

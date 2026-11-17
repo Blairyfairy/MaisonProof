@@ -1,0 +1,5 @@
+maisonproof_verify.settings:
+  title: MaisonProof
+  description: Configure the verification service
+  route_name: maisonproof_verify.settings
+  parent: system.admin_config_services

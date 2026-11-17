@@ -1,0 +1,1 @@
+{"name":"maisonproof/module-verify","description":"MAISONPROOF luxury product provenance status for Magento 2","type":"magento2-module","version":"0.1.0","license":"MIT","require":{"php":">=7.4","magento/framework":"*"},"autoload":{"files":["registration.php"],"psr-4":{"Maisonproof\\Verify\\":""}}}

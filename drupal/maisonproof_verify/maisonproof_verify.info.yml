@@ -1,0 +1,5 @@
+name: MaisonProof Verify
+type: module
+description: Displays independently authenticated product records from MaisonProof.
+package: Commerce
+core_version_requirement: ^10 || ^11
