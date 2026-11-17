@@ -1,5 +1,63 @@
 # MAISONPROOF
 
+**Confidence in every detail.**  
+*The authentication layer for luxury commerce.*
+
+MaisonProof is a multi-platform provenance and authentication software project for luxury retailers. Its aim is to help merchants document product origins, request appropriate independent reviews, and present a clear, restrained verification status to shoppers.
+
+**[Explore the interactive showroom](index.html)** · **[GitHub Pages setup](docs/GITHUB_PAGES.md)** · **[Security](docs/SECURITY.md)** · **[Roadmap](docs/ROADMAP.md)**
+
+## Explore the showroom
+
+The root-level `index.html` is a responsive, black-and-white product showcase ready for GitHub Pages. It demonstrates a luxury product page, four verification states, a sample certificate, a merchant dashboard, and interactive previews for WooCommerce, Magento 2, Drupal, and Django. It requires no build step. **All showcase records and metrics are fictional.**
+
+## Brand principle
+
+MaisonProof uses restrained typography, monochrome components, simple status language, and minimal badges that respect a merchant's visual identity. A badge must not imply independent authentication when evidence has not been reviewed. Registration and uploaded invoices alone are not proof of authenticity.
+
+## Source tree
+
+| Directory | Purpose |
+| --- | --- |
+| `service/` | Shared FastAPI prototype and tests |
+| `wordpress/maisonproof-verify/` | WordPress / WooCommerce plugin |
+| `magento2/Maisonproof/Verify/` | Magento 2 module |
+| `drupal/maisonproof_verify/` | Drupal module and block |
+| `django/maisonproof/` | Django app and template tag |
+| `assets/` | Shared plugin styling |
+| `site/` | GitHub Pages CSS, JS, and icon |
+| `docs/` | Security, business model, roadmap, and deployment |
+
+## Implementation status
+
+This is an **MVP / demonstration**, not a production authentication authority. The WordPress integration has product synchronization and display logic; Magento 2, Drupal, and Django have narrower display-oriented integrations. The backend is a prototype. Independent authentication partnerships, multi-tenant access controls, secured evidence storage, billing, certificate revocation controls, and full production integration testing remain necessary.
+
+## Quick start
+
+**Showroom:** Open `index.html` locally or enable GitHub Pages as described in [`docs/GITHUB_PAGES.md`](docs/GITHUB_PAGES.md).
+
+**Backend:** Review `service/requirements.txt` and `service/app.py`; install dependencies in a virtual environment and start the ASGI app with `uvicorn app:app --reload` from the `service` directory. Never expose a development configuration publicly.
+
+**Commerce integrations:** See the integration directories and their existing instructions. Configure an independently deployed MaisonProof API endpoint; GitHub Pages cannot run the service or the plugins.
+
+## Trust and disclosure
+
+MaisonProof does not itself establish that any real-world product is authentic. The public demonstration contains no live verification. Production authentication claims must be supported by qualified reviewers, documented evidence, and verifiable records. Avoid brand endorsements, partnerships, and certification claims unless independently substantiated.
+
+## Commercial direction
+
+Proposed revenue streams include subscriptions for merchants, usage-based verification reviews, and enterprise integrations. Pricing and forecast examples are planning assumptions, not promises. See [`docs/BUSINESS.md`](docs/BUSINESS.md).
+
+## License and name
+
+See [`LICENSE`](LICENSE) for source license. The MaisonProof name is provisional and requires trademark and domain clearance before commercial launch.
+
+---
+
+### Original project notes and implementation details
+
+# MAISONPROOF
+
 **Proof of origin. Confidence in every detail.**
 
 A quiet, black-and-white trust layer for luxury commerce. MaisonProof helps merchants connect product listings to a separately maintained provenance record and, where supported by evidence and independent review, display an understated authentication mark.
