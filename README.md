@@ -4,6 +4,9 @@
 
 # MaisonProof — Independent Luxury Authentication & Storefront Verification
 
+**[Explore the interactive product prototype](prototype/index.html)** — navigable storefront, shipment and remote intake, reviewer workflow, public verification, merchant console, delivery roadmap, and the complete 12-image design gallery. Demo data only; no live authentication, insurance, or messaging integrations.
+
+
 ![MaisonProof Magento storefront concept showing green verification seals and two authentication routes: insured shipment-based physical inspection and remote guided video, chat, and evidence review](assets/maisonproof-magento-storefront-concept.png)
 
 > **Design concept only.** The storefront, luxury products, brand references, shipping and insurance options, video consultation, certificate details, verification URL, dates, and green seals pictured above are illustrative mockups—not real authentication decisions, endorsements, manufacturer partnerships, or proof that these products were inspected. The pictured domain is not confirmed as owned or operational.
