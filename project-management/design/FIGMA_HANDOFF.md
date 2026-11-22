@@ -1,0 +1,6 @@
+# Figma-ready design handoff
+**Provided:** editable SVG wireframes in `wireframes/`, JSON design tokens, component descriptions and screen flow. Figma can import SVG by drag/drop; recreate components with Auto Layout, variants and variables for production. **Not provided:** a native `.fig` file or an actual shared Figma project (requires a connected Figma account and live collaboration).
+Suggested Figma pages: 00 Brand & tokens; 01 Components; 02 Merchant onboarding; 03 Shipment route; 04 Remote route; 05 Reviewer console; 06 Storefront & verification; 07 Admin/operations; 08 Prototype; 09 Accessibility/annotations.
+Variants: badge (authenticated, pending-neutral, revoked-hidden); button (default, hover, focus, disabled); case state; upload (empty, scanning, rejected, complete); route card (selected/unselected); device (mobile/desktop).
+Prototype connections: storefront → public record; merchant dashboard → route choice → shipment/remote → evidence requests → pending → approved; reviewer → review → decision; revoked → badge removed.
+Export: SVG for icons, PNG/WebP for photography, semantic CSS variables for tokens. Include screen-specific acceptance notes and accessible text alternatives.

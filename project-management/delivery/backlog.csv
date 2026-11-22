@@ -1,0 +1,53 @@
+ID,Epic,Sprint,Story,Priority,Owner,Status,Estimate_points,Acceptance_criteria,Dependencies
+LP-0001,Discovery & kickoff,0,Stakeholder map,P1,Unassigned,Not started,3,"Stakeholder map demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",None
+LP-0002,Discovery & kickoff,0,Charter and constraints,P1,Unassigned,Not started,5,"Charter and constraints demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",None
+LP-0003,Discovery & kickoff,0,Project repo and governance,P1,Unassigned,Not started,3,"Project repo and governance demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",None
+LP-0004,Discovery & kickoff,0,Risk workshop,P1,Unassigned,Not started,5,"Risk workshop demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",None
+LP-0101,Research & wireframes,1,Merchant interviews,P1,Unassigned,Not started,3,"Merchant interviews demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 0 gate
+LP-0102,Research & wireframes,1,Buyer trust research,P1,Unassigned,Not started,5,"Buyer trust research demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 0 gate
+LP-0103,Research & wireframes,1,Journey maps,P1,Unassigned,Not started,3,"Journey maps demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 0 gate
+LP-0104,Research & wireframes,1,Usability baseline,P1,Unassigned,Not started,5,"Usability baseline demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 0 gate
+LP-0201,Trust policy & identity,2,Review SOP,P0,Unassigned,Not started,3,"Review SOP demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 1 gate
+LP-0202,Trust policy & identity,2,Reviewer eligibility,P0,Unassigned,Not started,5,"Reviewer eligibility demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 1 gate
+LP-0203,Trust policy & identity,2,Merchant RBAC,P0,Unassigned,Not started,3,"Merchant RBAC demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 1 gate
+LP-0204,Trust policy & identity,2,Legal claims review,P0,Unassigned,Not started,5,"Legal claims review demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 1 gate
+LP-0301,Case engine,3,State machine,P0,Unassigned,Not started,3,"State machine demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 2 gate
+LP-0302,Case engine,3,Audit event log,P0,Unassigned,Not started,5,"Audit event log demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 2 gate
+LP-0303,Case engine,3,Item identity binding,P0,Unassigned,Not started,3,"Item identity binding demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 2 gate
+LP-0304,Case engine,3,Secure evidence storage,P0,Unassigned,Not started,5,"Secure evidence storage demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 2 gate
+LP-0401,Remote review,4,Upload and malware scan,P1,Unassigned,Not started,3,"Upload and malware scan demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 3 gate
+LP-0402,Remote review,4,Video consent,P1,Unassigned,Not started,5,"Video consent demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 3 gate
+LP-0403,Remote review,4,Chat correspondence,P1,Unassigned,Not started,3,"Chat correspondence demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 3 gate
+LP-0404,Remote review,4,Reviewer request loop,P1,Unassigned,Not started,5,"Reviewer request loop demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 3 gate
+LP-0501,Reviewer console,5,Queue and assignment,P1,Unassigned,Not started,3,"Queue and assignment demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 4 gate
+LP-0502,Reviewer console,5,Evidence comparison,P1,Unassigned,Not started,5,"Evidence comparison demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 4 gate
+LP-0503,Reviewer console,5,Second-review flow,P1,Unassigned,Not started,3,"Second-review flow demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 4 gate
+LP-0504,Reviewer console,5,Decision rationale,P1,Unassigned,Not started,5,"Decision rationale demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 4 gate
+LP-0601,Shipment workflow,6,Carrier/insurance evaluation,P1,Unassigned,Not started,3,"Carrier/insurance evaluation demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 5 gate
+LP-0602,Shipment workflow,6,Shipment quote UI,P1,Unassigned,Not started,5,"Shipment quote UI demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 5 gate
+LP-0603,Shipment workflow,6,Tracking/custody,P1,Unassigned,Not started,3,"Tracking/custody demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 5 gate
+LP-0604,Shipment workflow,6,Loss/return exception,P1,Unassigned,Not started,5,"Loss/return exception demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 5 gate
+LP-0701,Certificate authority,7,Signing keys,P0,Unassigned,Not started,3,"Signing keys demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 6 gate
+LP-0702,Certificate authority,7,Certificate lifecycle,P0,Unassigned,Not started,5,"Certificate lifecycle demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 6 gate
+LP-0703,Certificate authority,7,Revocation registry,P0,Unassigned,Not started,3,"Revocation registry demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 6 gate
+LP-0704,Certificate authority,7,Public redacted record,P0,Unassigned,Not started,5,"Public redacted record demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 6 gate
+LP-0801,WooCommerce launch path,8,Badge adapter,P0,Unassigned,Not started,3,"Badge adapter demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 7 gate
+LP-0802,WooCommerce launch path,8,Public verification UX,P0,Unassigned,Not started,5,"Public verification UX demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 7 gate
+LP-0803,WooCommerce launch path,8,Fail-closed tests,P0,Unassigned,Not started,3,"Fail-closed tests demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 7 gate
+LP-0804,WooCommerce launch path,8,Sandbox UAT,P0,Unassigned,Not started,5,"Sandbox UAT demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 7 gate
+LP-0901,Shopify integration,9,Theme/app adapter,P1,Unassigned,Not started,3,"Theme/app adapter demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 8 gate
+LP-0902,Shopify integration,9,Platform auth,P1,Unassigned,Not started,5,"Platform auth demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 8 gate
+LP-0903,Shopify integration,9,App policy review,P1,Unassigned,Not started,3,"App policy review demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 8 gate
+LP-0904,Shopify integration,9,Sandbox UAT,P1,Unassigned,Not started,5,"Sandbox UAT demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 8 gate
+LP-1001,Magento and billing,10,Magento module,P1,Unassigned,Not started,3,"Magento module demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 9 gate
+LP-1002,Magento and billing,10,Subscriptions,P1,Unassigned,Not started,5,"Subscriptions demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 9 gate
+LP-1003,Magento and billing,10,Per-review billing,P1,Unassigned,Not started,3,"Per-review billing demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 9 gate
+LP-1004,Magento and billing,10,Refund handling,P1,Unassigned,Not started,5,"Refund handling demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 9 gate
+LP-1101,Pilot operations,11,Pilot recruitment,P1,Unassigned,Not started,3,"Pilot recruitment demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 10 gate
+LP-1102,Pilot operations,11,Reviewer training,P1,Unassigned,Not started,5,"Reviewer training demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 10 gate
+LP-1103,Pilot operations,11,Telemetry dashboard,P1,Unassigned,Not started,3,"Telemetry dashboard demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 10 gate
+LP-1104,Pilot operations,11,Support escalation,P1,Unassigned,Not started,5,"Support escalation demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 10 gate
+LP-1201,Hardening & go/no-go,12,Pen test/accessibility,P0,Unassigned,Not started,3,"Pen test/accessibility demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 11 gate
+LP-1202,Hardening & go/no-go,12,Disaster recovery,P0,Unassigned,Not started,5,"Disaster recovery demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 11 gate
+LP-1203,Hardening & go/no-go,12,Final UAT,P0,Unassigned,Not started,3,"Final UAT demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 11 gate
+LP-1204,Hardening & go/no-go,12,Launch decision,P0,Unassigned,Not started,5,"Launch decision demonstrated in sandbox with evidence, auditability, tests and product-owner signoff",Sprint 11 gate

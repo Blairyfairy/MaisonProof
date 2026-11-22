@@ -1,0 +1,11 @@
+Case,Scenario,Expected,Priority
+UAT-01,Approved item matching certificate,Green badge + public record,P0
+UAT-02,Merchant claims approval without reviewer,No badge,P0
+UAT-03,Revoked certificate,Badge removed; record revoked,P0
+UAT-04,Wrong item mapping,No badge,P0
+UAT-05,Remote evidence insufficient,Request more or escalate; no badge,P0
+UAT-06,Shipment insurance excluded,Explicit disclosure before checkout,P0
+UAT-07,Video consent declined,No recording; alternate path,P0
+UAT-08,Verification API unavailable,Fail closed,P0
+UAT-09,Public page keyboard/screen reader,WCAG target met,P1
+UAT-10,Certificate dispute,Audit + immediate status update,P0
