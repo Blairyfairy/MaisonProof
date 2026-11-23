@@ -20,3 +20,27 @@ Merchant owner: submit inventory, track review, show trustworthy badges without 
 - Remote-only result states method and limitations; reviewer may require shipment.
 ## Open questions
 Qualified review criteria by product category; external authenticator accreditation; custody facilities; insured value ceilings; recording jurisdictions; Shopify distribution method; brand/trademark review; domain ownership.
+
+
+## Current scenario implementation register — 2026-11-23
+
+Status: Requirements and acceptance gates; not evidence of production completion.
+
+- [ ] **PRD-01:** Implement Shopify OAuth install, scopes, mandatory compliance webhooks, product lifecycle and uninstall cleanup. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-02:** Implement WooCommerce secure settings, async publish/update retries, status display and error recovery. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-03:** Implement Magento admin ACL/config encryption, async product events, queue retries and storefront badges. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-04:** Support evidence uploads, hash/quality checks, reviewer queues, disputes, revocations and audit trails. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-05:** Require signed certificates and independent public status lookup; never equate image quality with authenticity. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-06:** Product boundary and target merchant personas. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-07:** Functional behavior and exception paths. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-08:** Cross-platform event and status contracts. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-09:** Evidence, AI triage and independent review. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-10:** Nonfunctional SLOs, privacy and accessibility. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **PRD-11:** Delivery milestones, owners and exit gates. Evidence: code location, automated test, staging trace, owner approval.
+
+### Cross-platform release constraints
+
+- Merchant-side apps cannot grant verified status; final decisions remain reviewer-authorized.
+- AWS Bedrock image analysis is advisory and is not a validated counterfeit-authenticity classifier.
+- Shopify OAuth/compliance webhooks, WooCommerce/Magento retries, tenant isolation, certificate signing, revocation and real-install tests remain release gates unless separately evidenced.
+- All platform badges must resolve status against a server-authoritative record and handle pending, rejected, revoked and expired states safely.

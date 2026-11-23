@@ -24,3 +24,26 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 - Deliverable: Run live cross-platform end-to-end tests, pen test, accessibility and disaster recovery.
 - Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
 - Status: **planned; not independently validated**.
+
+## Current scenario implementation register — 2026-11-23
+
+Status: Requirements and acceptance gates; not evidence of production completion.
+
+- [ ] **SPRINT_11-01:** Sprint 11 focus: Merchant pilots and accessibility. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-02:** Document exact repository paths and assigned owners for the sprint. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-03:** Include three-platform impact analysis and versioned API change log. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-04:** Provide reproducible positive and negative test results with links to artifacts. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-05:** Record blockers, residual risks and the go/no-go handoff to next sprint. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-06:** Sprint objective and explicit scope. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-07:** Cross-platform deliverables and owner. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-08:** AWS resources and API dependency. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-09:** Security, AI and human review controls. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-10:** Executable test and evidence artifact. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINT_11-11:** Release decision, risks and next sprint. Evidence: code location, automated test, staging trace, owner approval.
+
+### Cross-platform release constraints
+
+- Merchant-side apps cannot grant verified status; final decisions remain reviewer-authorized.
+- AWS Bedrock image analysis is advisory and is not a validated counterfeit-authenticity classifier.
+- Shopify OAuth/compliance webhooks, WooCommerce/Magento retries, tenant isolation, certificate signing, revocation and real-install tests remain release gates unless separately evidenced.
+- All platform badges must resolve status against a server-authoritative record and handle pending, rejected, revoked and expired states safely.

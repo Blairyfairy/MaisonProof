@@ -18,3 +18,24 @@ Two-week cadence is illustrative. Every sprint includes refinement, daily coordi
 | 12 | Hardening + launch decision | DR, accessibility, pen test, runbooks | go/no-go |
 
 Detailed per-sprint files are in `sprints/` and backlog is `backlog.csv`.
+
+
+## Current scenario implementation register — 2026-11-23
+
+Status: Requirements and acceptance gates; not evidence of production completion.
+
+- [ ] **SPRINTS-01:** Map Sprints 00–12 to security foundation, three adapters, evidence pipeline, reviewer flows, AI evaluation and release. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINTS-02:** Every sprint closes only with code, tests, logs/screenshots and named acceptance owner. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINTS-03:** Named accountable owner and dependency. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINTS-04:** Shopify installation, scopes and webhooks. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINTS-05:** WooCommerce publish/update/retry flows. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINTS-06:** Magento observers, queue and admin ACL. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINTS-07:** AWS asynchronous processing and DLQ. Evidence: code location, automated test, staging trace, owner approval.
+- [ ] **SPRINTS-08:** Evidence-backed acceptance and rollback. Evidence: code location, automated test, staging trace, owner approval.
+
+### Cross-platform release constraints
+
+- Merchant-side apps cannot grant verified status; final decisions remain reviewer-authorized.
+- AWS Bedrock image analysis is advisory and is not a validated counterfeit-authenticity classifier.
+- Shopify OAuth/compliance webhooks, WooCommerce/Magento retries, tenant isolation, certificate signing, revocation and real-install tests remain release gates unless separately evidenced.
+- All platform badges must resolve status against a server-authoritative record and handle pending, rejected, revoked and expired states safely.
