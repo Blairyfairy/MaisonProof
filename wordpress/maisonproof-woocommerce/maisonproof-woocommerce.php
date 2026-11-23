@@ -32,7 +32,31 @@ final class MaisonProof_Woo {
   add_filter('manage_mp_record_posts_columns',[__CLASS__,'columns']);
   add_action('manage_mp_record_posts_custom_column',[__CLASS__,'column_data'],10,2);
   add_action('admin_notices',[__CLASS__,'woo_notice']);
+  add_action('admin_enqueue_scripts',[__CLASS__,'brand_admin_assets']);
+  add_action('admin_menu',[__CLASS__,'brand_admin_menu'],99);
  }
+
+ public static function brand_admin_assets($hook){
+  if (strpos((string)$hook,'maisonproof-brand')===false) return;
+  wp_enqueue_style('maisonproof-branded-admin',plugins_url('assets/maisonproof-ui.css',__FILE__),[],self::VERSION);
+ }
+ public static function brand_admin_menu(){
+  add_submenu_page('edit.php?post_type=mp_record','MaisonProof Brand Dashboard','Brand Dashboard','manage_options','maisonproof-brand',[__CLASS__,'brand_dashboard']);
+ }
+ public static function brand_dashboard(){
+  if (!current_user_can('manage_options')) return;
+  $logo=plugins_url('assets/maisonproof-logo.svg',__FILE__);
+  $mark=plugins_url('assets/maisonproof-mark.svg',__FILE__);
+  $counts=wp_count_posts('mp_record');
+  $total=$counts ? (int)$counts->publish : 0;
+  echo '<div class="wrap mp-ui"><div class="mp-shell"><header class="mp-head"><img class="mp-logo" src="'.esc_url($logo).'" alt="MaisonProof Authentication Authority"><span class="mp-badge">WooCommerce integration</span></header>';
+  echo '<div class="mp-kicker">Authentication operations</div><h1>Merchant verification workspace</h1><p class="mp-muted">MaisonProof branding and product authentication controls. A published product is not automatically verified.</p>';
+  echo '<div class="mp-grid"><section class="mp-card"><img class="mp-mark" src="'.esc_url($mark).'" alt=""><h2>Verification records</h2><p>'.esc_html((string)$total).' published local records</p><a class="mp-button" href="'.esc_url(admin_url('edit.php?post_type=mp_record')).'">Manage records</a></section>';
+  echo '<section class="mp-card"><h2>Product publishing</h2><p class="mp-muted">Storefront products are submitted as pending. Only approved decisions can produce a verified badge.</p><a class="mp-button" href="'.esc_url(admin_url('edit.php?post_type=product')).'">View products</a></section>';
+  echo '<section class="mp-card"><h2>Brand assets</h2><p class="mp-muted">Shared gold M monogram, MaisonProof wordmark, accessible badges and responsive components.</p><span class="mp-badge" data-status="pending">Brand system installed</span></section></div>';
+  echo '<p class="mp-footer">Visual dashboard only; it does not replace central reviewer authorization or attest to live API connectivity.</p></div></div>';
+ }
+
  public static function record_type(){register_post_type('mp_record',[
   'labels'=>['name'=>'MaisonProof Records','singular_name'=>'Verification Record','add_new_item'=>'Add Verification Record'],
   'public'=>false,'show_ui'=>true,'show_in_menu'=>true,'menu_icon'=>'dashicons-shield','supports'=>['title'],

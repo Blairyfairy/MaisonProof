@@ -2,11 +2,11 @@
 /** @var \Magento\Framework\View\Element\Template $block */
 $d=(array)$block->getData('record_data');$status=(string)($d['status']??'not_found');
 ?>
-<section class="maisonproof-record"><h1><span class="maisonproof-m">M</span> MaisonProof Verification</h1>
+<section class="maisonproof-record mp-ui"><div class="mp-shell"><header class="mp-head"><img class="mp-logo" src="<?= $block->escapeUrl($block->getViewFileUrl('MaisonProof_Verification::images/maisonproof-logo.svg')) ?>" alt="MaisonProof Authentication Authority"></header><div class="mp-kicker">Independent record lookup</div><h1>MaisonProof Verification</h1>
 <p class="maisonproof-record-status">Status: <strong><?= $block->escapeHtml(strtoupper(str_replace('_',' ',$status))) ?></strong></p>
 <?php if ($status !== 'not_found'): ?>
 <p>Record: <code><?= $block->escapeHtml($d['public_id']??'') ?></code></p>
 <p>Last updated: <?= $block->escapeHtml($d['updated_at']??'') ?> UTC</p>
 <?php if (!empty($d['expires_at'])): ?><p>Expires: <?= $block->escapeHtml($d['expires_at']) ?> UTC</p><?php endif; ?>
 <?php else: ?><p>No matching record was found.</p><?php endif; ?>
-<p>Verification indicates a recorded review outcome, not a manufacturer warranty or affiliation.</p></section>
+<p>Verification indicates a recorded review outcome, not a manufacturer warranty or affiliation.</p></div></section>
