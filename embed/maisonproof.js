@@ -14,7 +14,7 @@
     a.textContent = '✓ View verification';
     a.setAttribute('aria-label', 'View MaisonProof verification record');
     a.title = 'View MaisonProof verification record';
-    Object.assign(a.style, {position:'absolute',bottom:'12px',right:'12px',zIndex:'5',background:'#111827',color:'#fff',border:'1px solid #c8a96a',borderRadius:'20px',padding:'7px 11px',font:'600 12px system-ui',textDecoration:'none'});
+    Object.assign(a.style, {position:'absolute',bottom:'12px',right:'12px',zIndex:'5',background:'#152d4c',color:'#fff',border:'1px solid #d6ad66',borderRadius:'20px',padding:'7px 11px',font:'600 12px system-ui',textDecoration:'none'});
     // Fail closed: no badge unless MaisonProof's own API reports active approval.
     fetch(`${base}/v1/records/${encodeURIComponent(id)}`, {mode:'cors', credentials:'omit', cache:'no-store'})
       .then(r => { if (!r.ok) throw new Error('verification unavailable'); return r.json(); })

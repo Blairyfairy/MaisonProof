@@ -1,0 +1,48 @@
+{
+  "as_of": "2026-11-22",
+  "currency": "USD",
+  "pricing_note": "Reference published US prices researched November 2026; may change. No MaisonProof stock, certification or merchant availability implied.",
+  "imagery_note": "AI-generated concept illustrations, not manufacturer photographs; exact product details may differ.",
+  "products": [
+    {
+      "slug": "gucci-jackie-1961",
+      "brand": "GUCCI",
+      "title": "Jackie 1961 Medium",
+      "desc": "Black GG canvas · silver-tone piston closure",
+      "price": "$2,950",
+      "source": "https://www.gucci.com/us/en/pr/women/handbags/shoulder-bags-for-women/half-moon-bags-for-women/gucci-jackie-1961-medium-shoulder-bag-p-863136FAFV41000",
+      "status": "Demo · unverified",
+      "image": "assets/products/gucci-jackie-1961.png"
+    },
+    {
+      "slug": "rolex-oyster-perpetual-36",
+      "brand": "ROLEX",
+      "title": "Oyster Perpetual 36",
+      "desc": "Oystersteel · multicoloured Jubilee-motif dial",
+      "price": "$6,750",
+      "source": "https://www.rolex.com/watches/new-watches/all-models",
+      "status": "Demo · unverified",
+      "image": "assets/products/rolex-oyster-perpetual-36.png"
+    },
+    {
+      "slug": "lv-speedy-bandouliere-25",
+      "brand": "LOUIS VUITTON",
+      "title": "Speedy Bandoulière 25",
+      "desc": "Black Monogram Empreinte · grained leather",
+      "price": "$3,000",
+      "source": "https://us.louisvuitton.com/eng-us/products/speedy-bandouliere-25-nvprod3160026v/M59273",
+      "status": "Demo · unverified",
+      "image": "assets/products/lv-speedy-bandouliere-25.png"
+    },
+    {
+      "slug": "cartier-love-small",
+      "brand": "CARTIER",
+      "title": "LOVE Bracelet · Small",
+      "desc": "18K yellow gold · screw-motif bracelet",
+      "price": "$5,300",
+      "source": "https://maisonassay.com/articles/cartier-love-bracelet-price-history",
+      "status": "Demo · unverified",
+      "image": "assets/products/cartier-love-small.png"
+    }
+  ]
+}

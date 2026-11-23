@@ -22,5 +22,5 @@ add_action('woocommerce_before_single_product_summary', function () {
 }, 25);
 add_action('wp_head', function () {
     if (!function_exists('is_product') || !is_product()) return;
-    echo '<style>.single-product .woocommerce-product-gallery{position:relative}.maisonproof-badge{display:inline-block;position:absolute;bottom:12px;right:12px;z-index:5;background:#111827;color:#fff!important;border:1px solid #c8a96a;border-radius:18px;padding:7px 11px;font:600 12px system-ui;text-decoration:none}.maisonproof-badge:focus-visible{outline:3px solid #2563eb}</style>';
+    echo '<style>.single-product .woocommerce-product-gallery{position:relative}.maisonproof-badge{display:inline-block;position:absolute;bottom:12px;right:12px;z-index:5;background:#152d4c;color:#fff!important;border:1px solid #d6ad66;border-radius:18px;padding:7px 11px;font:600 12px system-ui;text-decoration:none}.maisonproof-badge:focus-visible{outline:3px solid #2563eb}</style>';
 });
