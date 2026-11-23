@@ -1,48 +1,65 @@
 {
   "as_of": "2026-11-22",
   "currency": "USD",
-  "pricing_note": "Reference published US prices researched November 2026; may change. No MaisonProof stock, certification or merchant availability implied.",
+  "pricing_note": "US published product prices checked November 22, 2026; retail reference prices, not resale valuations or MaisonProof inventory. Cartier is a third-party retail reference; all other entries use manufacturer listings.",
   "imagery_note": "AI-generated concept illustrations, not manufacturer photographs; exact product details may differ.",
   "products": [
     {
       "slug": "gucci-jackie-1961",
       "brand": "GUCCI",
       "title": "Jackie 1961 Medium",
-      "desc": "Black GG canvas · silver-tone piston closure",
+      "desc": "Sand and brown GG canvas · piston closure",
       "price": "$2,950",
-      "source": "https://www.gucci.com/us/en/pr/women/handbags/shoulder-bags-for-women/half-moon-bags-for-women/gucci-jackie-1961-medium-shoulder-bag-p-863136FAFV41000",
-      "status": "Demo · unverified",
-      "image": "assets/products/gucci-jackie-1961.png"
+      "source": "https://www.gucci.com/us/en/pr/women/handbags/shoulder-bags-for-women/half-moon-bags-for-women/gucci-jackie-1961-medium-shoulder-bag-p-863136FAFV29651",
+      "status": "Illustrative demo approved UI",
+      "image": "assets/products/gucci-jackie-1961.png",
+      "manufacturer_image_url": "https://media.gucci.com/style/DarkGray_Center_0_0_1200x1200/1773768624/863136_FAFV4_1000_001_093_0034_Light-gucci-jackie-1961-medium-shoulder-bag.jpg",
+      "image_fallback": "assets/products/gucci-jackie-1961.png",
+      "maisonproof_authentication_status": "demo_verified",
+      "verification_record": "prototype/index.html#demo-record-gucci-jackie-1961"
     },
     {
       "slug": "rolex-oyster-perpetual-36",
       "brand": "ROLEX",
       "title": "Oyster Perpetual 36",
-      "desc": "Oystersteel · multicoloured Jubilee-motif dial",
+      "desc": "Oystersteel · multicoloured Jubilee-motif dial · ref. 126000",
       "price": "$6,750",
-      "source": "https://www.rolex.com/watches/new-watches/all-models",
-      "status": "Demo · unverified",
-      "image": "assets/products/rolex-oyster-perpetual-36.png"
+      "source": "https://www.rolex.com/en-us/watches/oyster-perpetual/m126000-0016",
+      "status": "Not verified",
+      "image": "assets/products/rolex-oyster-perpetual-36.png",
+      "manufacturer_image_url": "https://hips.hearstapps.com/hmg-prod/images/e7f4c208-2d58-4b68-b7a8-5b44e9305ccc.jpg",
+      "image_fallback": "assets/products/rolex-oyster-perpetual-36.png",
+      "maisonproof_authentication_status": "not_verified",
+      "verification_record": "prototype/index.html#demo-record-rolex-oyster-perpetual-36"
     },
     {
       "slug": "lv-speedy-bandouliere-25",
       "brand": "LOUIS VUITTON",
       "title": "Speedy Bandoulière 25",
-      "desc": "Black Monogram Empreinte · grained leather",
-      "price": "$3,000",
-      "source": "https://us.louisvuitton.com/eng-us/products/speedy-bandouliere-25-nvprod3160026v/M59273",
-      "status": "Demo · unverified",
-      "image": "assets/products/lv-speedy-bandouliere-25.png"
+      "desc": "Monogram canvas · natural cowhide trim · ref. M46977",
+      "price": "$1,980",
+      "source": "https://us.louisvuitton.com/eng-us/products/speedy-25-monogram-nvprod5320019v/M46977",
+      "status": "Illustrative demo approved UI",
+      "image": "assets/products/lv-speedy-bandouliere-25.png",
+      "manufacturer_image_url": "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-bandouliere-25--M58951_PM1_Back%20view.png?hei=1440&wid=1440",
+      "image_fallback": "assets/products/lv-speedy-bandouliere-25.png",
+      "maisonproof_authentication_status": "demo_verified",
+      "verification_record": "prototype/index.html#demo-record-lv-speedy-bandouliere-25"
     },
     {
       "slug": "cartier-love-small",
       "brand": "CARTIER",
       "title": "LOVE Bracelet · Small",
       "desc": "18K yellow gold · screw-motif bracelet",
-      "price": "$5,300",
-      "source": "https://maisonassay.com/articles/cartier-love-bracelet-price-history",
-      "status": "Demo · unverified",
-      "image": "assets/products/cartier-love-small.png"
+      "price": "$5,500",
+      "source": "https://editorialist.com/p/cartier-love-small-18ct-yellow-gold-bracelet-16cm-33729693/",
+      "status": "Not verified",
+      "image": "assets/products/cartier-love-small.png",
+      "manufacturer_image_url": "https://www.cartier.jp/content/dam/rcq/car/bk/oE/wy/jS/Qq/mj/Xb/vx/1k/9O/1g/bkoEwyjSQqmjXbvx1k9O1g.png.scale.600.high.love-%E3%83%96%E3%83%AC%E3%82%B9%E3%83%AC%E3%83%83%E3%83%88%E3%80%81%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%AB%E3%83%A2%E3%83%87%E3%83%AB-%E3%82%A4%E3%82%A8%E3%83%AD%E3%83%BC%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%89.png",
+      "image_fallback": "assets/products/cartier-love-small.png",
+      "maisonproof_authentication_status": "not_verified",
+      "verification_record": "prototype/index.html#demo-record-cartier-love-small"
     }
-  ]
+  ],
+  "verification_note": "Two entries display DEMO VERIFIED purely to illustrate UI; no product was inspected or authenticated. Other two entries display NOT VERIFIED. All records are examples."
 }
