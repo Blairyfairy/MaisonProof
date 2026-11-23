@@ -3,3 +3,54 @@
 
 /* Shared brand identity and evidence-oriented execution panels */
 .top .shell{min-height:86px}.top .brand{display:inline-flex;align-items:center;min-width:0;max-width:min(340px,62vw);flex-shrink:1}.top .brand-logo{display:block;width:100%;height:auto;max-height:74px;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 10px rgba(0,0,0,.15))}.top .brand:hover .brand-logo{filter:brightness(1.1) drop-shadow(0 3px 12px rgba(231,197,139,.17))}.top .back{white-space:nowrap;font-size:13px}.top .back:hover{color:var(--gold)}.execution{border:1px solid #3b5269;border-radius:20px;background:linear-gradient(135deg,#172b3b 0%,#111c2c 75%);padding:clamp(20px,3vw,34px);margin-bottom:24px}.execution h2{font-size:clamp(19px,2.4vw,26px);line-height:1.25;margin:0 0 10px;color:#f0d5a6}.execution p{color:#b8ccdc;margin:0 0 18px}.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}.checks li{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border:1px solid #34495e;background:#0c1a2a;border-radius:12px;color:#e2edf6;line-height:1.5}.check-num{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.08em;flex-shrink:0;padding-top:3px}.execution .verification{border-top:1px solid #334a5f;padding-top:17px;margin:20px 0 0;font-size:13px;color:#a6c4d4}@media(max-width:600px){.top .shell{padding:12px 18px;gap:10px;min-height:76px}.top .brand{max-width:55vw}.top .back{font-size:11px;white-space:normal;text-align:right}.checks li{padding:12px}}
+
+/* MaisonProof homepage identity — aligned to the original, unchanged index.html */
+:root{color-scheme:light;--bg:#f6faff;--panel:#ffffff;--paper:#f8fbff;--gold:#d6ad66;--teal:#197cbe;--green:#258bd0;--line:#d6e4f2;--muted:#627e99;--txt:#19324e;--aqua:#197cbe}
+html{scroll-behavior:smooth}
+body{background:#f6faff;color:#19324e;font-family:Inter,Arial,sans-serif;line-height:1.55}
+a{color:#197cbe}a:hover{color:#b68a42}
+.shell{max-width:1380px;padding-left:30px;padding-right:30px}
+.top{background:#f6fafff2;border-bottom:1px solid #d6e4f2;backdrop-filter:blur(18px);box-shadow:0 3px 18px rgba(24,72,112,.035)}
+.top .shell{min-height:78px}
+.top .brand{max-width:min(340px,55vw);line-height:0;letter-spacing:normal}
+.top .brand-logo{width:min(340px,42vw);height:auto;max-height:68px;object-fit:contain;object-position:left center;mix-blend-mode:multiply;filter:none}
+.top .brand:hover .brand-logo{filter:none;opacity:.85}
+.top .back{color:#456b8d;font-size:13px;font-weight:600}
+.top .back:hover{color:#b68a42}
+.hero{padding:74px 0 42px;background:radial-gradient(circle at 85% 10%,#e2f0fc 0%,transparent 47%)}
+.eyebrow{color:#b58b48;font-size:11px;letter-spacing:.23em}
+.hero h1{font-family:Georgia,serif;font-size:clamp(42px,5.7vw,78px);font-weight:400;line-height:1.07;letter-spacing:-.035em;color:#16314e;margin:17px 0}
+.lede{color:#627e99;font-size:18px;max-width:830px}
+.meta{gap:9px;margin:26px 0 8px}
+.chip{background:#fff;border:1px solid #d6e4f2;color:#627e99;border-radius:9px;padding:7px 12px;font-size:12px}
+.layout{grid-template-columns:260px minmax(0,1fr);gap:24px}
+.side{background:#fff;border:1px solid #d6e4f2;border-radius:15px;box-shadow:0 8px 30px rgba(33,84,130,.04)}
+.side h3{color:#b58b48;font-size:11px;letter-spacing:.18em}
+.side a{color:#456b8d;font-size:13px;border-radius:7px}
+.side a:hover,.side a.active{background:#eaf4ff;color:#197cbe}
+.search{background:#f8fbff;color:#19324e;border:1px solid #cddfeb;border-radius:8px;outline-color:#197cbe}
+.search::placeholder{color:#849db2}
+.visual,.document,.execution{background:#fff;border:1px solid #d6e4f2;border-radius:15px;box-shadow:0 10px 35px rgba(31,78,120,.035)}
+.visual h2{color:#b58b48;font-size:12px;letter-spacing:.18em}
+.document{color:#19324e}
+.document h1,.document h2,.document h3{font-family:Georgia,serif;font-weight:400;color:#16314e}
+.document h1{font-size:34px}.document h2{font-size:27px;border-top:1px solid #e3edf6}.document h3{font-size:21px;color:#23547a}
+.document p,.document li{color:#486782}
+.document strong{color:#16314e}
+.document th,.document td{border-color:#d6e4f2;color:#385c79}
+.document th{background:#edf5fc;color:#19324e}
+.document tr:nth-child(even) td{background:#f8fbff}
+.document pre{background:#f1f6fc;border-color:#d6e4f2;color:#19324e}
+.document code{color:#1c679c}
+.document blockquote{color:#486782;border-left-color:#d6ad66}
+.note{background:#eef7ff;border-left-color:#197cbe;color:#486782}
+.execution{background:linear-gradient(150deg,#fff,#f8fbff)}
+.execution h2{font-family:Georgia,serif;font-weight:400;color:#16314e}
+.execution p{color:#627e99}
+.checks li{background:#f8fbff;border:1px solid #d6e4f2;color:#385c79;border-radius:9px}
+.check-num{color:#b58b48}
+.execution .verification{border-top-color:#d6e4f2;color:#627e99}
+.foot{border-top:1px solid #d6e4f2;color:#627e99}
+.visual svg{border-radius:9px}
+@media(max-width:780px){.layout{grid-template-columns:1fr}.shell{padding-left:20px;padding-right:20px}.side{position:static;max-height:280px}.hero{padding:44px 0 25px}}
+@media(max-width:600px){.top .shell{min-height:72px;padding:10px 18px}.top .brand-logo{max-height:58px;width:min(300px,51vw)}.top .back{font-size:11px}.hero h1{font-size:clamp(38px,9vw,55px)}}
