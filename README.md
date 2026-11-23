@@ -360,7 +360,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 00 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 00 planning and verification workflow](project-management/viewer/images/SPRINT_00.svg)
+[MaisonProof sprint 00 planning and verification workflow](project-management/viewer/SPRINT_00.html)
 
 [Open sprint 00 documentation](project-management/viewer/SPRINT_00.html)
 
@@ -368,7 +368,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 01 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 01 planning and verification workflow](project-management/viewer/images/SPRINT_01.svg)
+[MaisonProof sprint 01 planning and verification workflow](project-management/viewer/SPRINT_01.html)
 
 [Open sprint 01 documentation](project-management/viewer/SPRINT_01.html)
 
@@ -376,7 +376,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 02 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 02 planning and verification workflow](project-management/viewer/images/SPRINT_02.svg)
+[MaisonProof sprint 02 planning and verification workflow](project-management/viewer/SPRINT_02.html)
 
 [Open sprint 02 documentation](project-management/viewer/SPRINT_02.html)
 
@@ -384,7 +384,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 03 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 03 planning and verification workflow](project-management/viewer/images/SPRINT_03.svg)
+[MaisonProof sprint 03 planning and verification workflow](project-management/viewer/SPRINT_03.html)
 
 [Open sprint 03 documentation](project-management/viewer/SPRINT_03.html)
 
@@ -392,7 +392,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 04 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 04 planning and verification workflow](project-management/viewer/images/SPRINT_04.svg)
+[MaisonProof sprint 04 planning and verification workflow](project-management/viewer/SPRINT_04.html)
 
 [Open sprint 04 documentation](project-management/viewer/SPRINT_04.html)
 
@@ -400,7 +400,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 05 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 05 planning and verification workflow](project-management/viewer/images/SPRINT_05.svg)
+[MaisonProof sprint 05 planning and verification workflow](project-management/viewer/SPRINT_05.html)
 
 [Open sprint 05 documentation](project-management/viewer/SPRINT_05.html)
 
@@ -408,7 +408,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 06 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 06 planning and verification workflow](project-management/viewer/images/SPRINT_06.svg)
+[MaisonProof sprint 06 planning and verification workflow](project-management/viewer/SPRINT_06.html)
 
 [Open sprint 06 documentation](project-management/viewer/SPRINT_06.html)
 
@@ -416,7 +416,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 07 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 07 planning and verification workflow](project-management/viewer/images/SPRINT_07.svg)
+[MaisonProof sprint 07 planning and verification workflow](project-management/viewer/SPRINT_07.html)
 
 [Open sprint 07 documentation](project-management/viewer/SPRINT_07.html)
 
@@ -424,7 +424,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 08 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 08 planning and verification workflow](project-management/viewer/images/SPRINT_08.svg)
+[MaisonProof sprint 08 planning and verification workflow](project-management/viewer/SPRINT_08.html)
 
 [Open sprint 08 documentation](project-management/viewer/SPRINT_08.html)
 
@@ -432,7 +432,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 09 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 09 planning and verification workflow](project-management/viewer/images/SPRINT_09.svg)
+[MaisonProof sprint 09 planning and verification workflow](project-management/viewer/SPRINT_09.html)
 
 [Open sprint 09 documentation](project-management/viewer/SPRINT_09.html)
 
@@ -440,7 +440,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 10 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 10 planning and verification workflow](project-management/viewer/images/SPRINT_10.svg)
+[MaisonProof sprint 10 planning and verification workflow](project-management/viewer/SPRINT_10.html)
 
 [Open sprint 10 documentation](project-management/viewer/SPRINT_10.html)
 
@@ -448,7 +448,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 11 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 11 planning and verification workflow](project-management/viewer/images/SPRINT_11.svg)
+[MaisonProof sprint 11 planning and verification workflow](project-management/viewer/SPRINT_11.html)
 
 [Open sprint 11 documentation](project-management/viewer/SPRINT_11.html)
 
@@ -456,7 +456,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 12 — visual workflow and detailed page</summary>
 
-![MaisonProof sprint 12 planning and verification workflow](project-management/viewer/images/SPRINT_12.svg)
+[MaisonProof sprint 12 planning and verification workflow](project-management/viewer/SPRINT_12.html)
 
 [Open sprint 12 documentation](project-management/viewer/SPRINT_12.html)
 
