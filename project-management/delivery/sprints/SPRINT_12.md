@@ -17,3 +17,10 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 **Enterprise readiness and launch gates.** Load and security testing, disaster recovery, secret rotation, penetration test, SOC2 readiness gap review, billing reconciliation, support SLAs, incident response and privacy deletion; acceptance: approved release checklist and documented exceptions.
 **Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
 **Status:** Planned; do not mark complete without captured execution evidence.
+
+
+## AI-assisted authenticity capability — expanded acceptance gates
+
+- Deliverable: Independent accuracy audit, signed certificates, go/no-go gates and rollback drill.
+- Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
+- Status: **planned; not independently validated**.

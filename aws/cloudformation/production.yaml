@@ -33,6 +33,16 @@ Parameters:
   ShopifyArtifactKey:
     Type: String
     Default: maisonproof/shopify-webhook.zip
+  EnableBedrock:
+    Type: String
+    Default: 'false'
+    AllowedValues: ['true','false']
+  BedrockModelId:
+    Type: String
+    Default: 'amazon.nova-lite-v1:0'
+  EvidenceAiArtifactKey:
+    Type: String
+    Default: maisonproof/evidence-ai.zip
   AllowedOrigin:
     Type: String
     Default: https://example.com
@@ -75,6 +85,7 @@ Resources:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault: {SSEAlgorithm: AES256}
       VersioningConfiguration: {Status: Enabled}
+      NotificationConfiguration: {EventBridgeConfiguration: {EventBridgeEnabled: true}}
       LifecycleConfiguration:
         Rules:
           - Id: AbortMultipart
@@ -106,6 +117,85 @@ Resources:
       RedrivePolicy:
         deadLetterTargetArn: !GetAtt DeadLetterQueue.Arn
         maxReceiveCount: 5
+  EvidenceAiQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      VisibilityTimeout: 180
+      SqsManagedSseEnabled: true
+      RedrivePolicy: {deadLetterTargetArn: !GetAtt DeadLetterQueue.Arn, maxReceiveCount: 5}
+  EvidenceEventRule:
+    Type: AWS::Events::Rule
+    Properties:
+      EventPattern:
+        source: [aws.s3]
+        detail-type: ['Object Created']
+        detail:
+          bucket: {name: [!Ref Evidence]}
+          object: {key: [{prefix: 'evidence/'}]}
+      Targets:
+        - Id: EvidenceQueue
+          Arn: !GetAtt EvidenceAiQueue.Arn
+  EvidenceQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues: [!Ref EvidenceAiQueue]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: events.amazonaws.com}
+            Action: sqs:SendMessage
+            Resource: !GetAtt EvidenceAiQueue.Arn
+            Condition: {ArnEquals: {'aws:SourceArn': !GetAtt EvidenceEventRule.Arn}}
+  EvidenceAiRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: lambda.amazonaws.com}
+            Action: sts:AssumeRole
+      ManagedPolicyArns: [arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole]
+      Policies:
+        - PolicyName: EvidenceAnalysis
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: [s3:GetObject]
+                Resource: !Sub '${Evidence.Arn}/evidence/*'
+              - Effect: Allow
+                Action: [dynamodb:PutItem]
+                Resource: !GetAtt Records.Arn
+              - Effect: Allow
+                Action: [sqs:ReceiveMessage, sqs:DeleteMessage, sqs:GetQueueAttributes]
+                Resource: !GetAtt EvidenceAiQueue.Arn
+              - Effect: Allow
+                Action: [bedrock:InvokeModel]
+                Resource: !Sub 'arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/*'
+  EvidenceAiFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: evidence_ai.handler
+      Role: !GetAtt EvidenceAiRole.Arn
+      Code: {S3Bucket: !Ref ArtifactBucket, S3Key: !Ref EvidenceAiArtifactKey}
+      Timeout: 60
+      MemorySize: 512
+      Environment:
+        Variables:
+          TABLE: !Ref Records
+          ENABLE_BEDROCK: !Ref EnableBedrock
+          BEDROCK_MODEL_ID: !Ref BedrockModelId
+  EvidenceAiEventSource:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      EventSourceArn: !GetAtt EvidenceAiQueue.Arn
+      FunctionName: !Ref EvidenceAiFunction
+      BatchSize: 1
+      FunctionResponseTypes: [ReportBatchItemFailures]
   ApiRole:
     Type: AWS::IAM::Role
     Properties:
@@ -293,6 +383,14 @@ Resources:
     Properties:
       ApiId: !Ref HttpApi
       RouteKey: 'POST /v1/records/{id}/decision'
+      Target: !Sub 'integrations/${ApiIntegration}'
+      AuthorizationType: JWT
+      AuthorizerId: !Ref ReviewerAuthorizer
+  ApiRouteEvidenceUpload:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref HttpApi
+      RouteKey: 'POST /v1/records/{id}/evidence-upload'
       Target: !Sub 'integrations/${ApiIntegration}'
       AuthorizationType: JWT
       AuthorizerId: !Ref ReviewerAuthorizer

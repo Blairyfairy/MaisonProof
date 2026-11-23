@@ -17,3 +17,10 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 **AWS event pipeline.** SQS retries/DLQ, idempotency, audit events, queue reconciliation, PITR restore rehearsal, S3 retention controls; acceptance: fault injection and RPO/RTO evidence.
 **Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
 **Status:** Planned; do not mark complete without captured execution evidence.
+
+
+## AI-assisted authenticity capability — expanded acceptance gates
+
+- Deliverable: Add Shopify installation/OAuth, compliance webhooks, metafield ownership and signed synchronization.
+- Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
+- Status: **planned; not independently validated**.

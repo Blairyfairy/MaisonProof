@@ -40,6 +40,20 @@ def handle(e):
   try:Q.send_message(QueueUrl=os.environ['QUEUE_URL'],MessageBody=json.dumps({'record_id':rid,'store':store}))
   except ClientError:print('queue_send_failed',rid) # record persists and can be reconciled
   return response(202,{'id':rid,'status':'pending'})
+ upload=re.fullmatch(r'/v1/records/([0-9a-f]{32})/evidence-upload',route)
+ if upload and method=='POST':
+  claims=e.get('requestContext',{}).get('authorizer',{}).get('jwt',{}).get('claims',{})
+  groups=str(claims.get('cognito:groups','')).replace(' ','')
+  if 'MaisonProofReviewers' not in groups:return response(403,{'error':'reviewer_group_required'})
+  rid=upload.group(1)
+  if not D.get_item(TableName=TABLE,Key={'pk':{'S':'RECORD#'+rid},'sk':{'S':'META'}}).get('Item'):return response(404,{'error':'not_found'})
+  try:payload=json.loads(e.get('body') or '{}')
+  except ValueError:return response(400,{'error':'invalid_json'})
+  mime=payload.get('content_type')
+  if mime not in ('image/jpeg','image/png','image/webp'):return response(422,{'error':'unsupported_content_type'})
+  key='evidence/'+rid+'/'+uuid.uuid4().hex
+  url=boto3.client('s3').generate_presigned_url('put_object',Params={'Bucket':os.environ['EVIDENCE_BUCKET'],'Key':key,'ContentType':mime},ExpiresIn=300)
+  return response(200,{'upload_url':url,'object_key':key,'expires_seconds':300,'max_bytes':8388608,'required_content_type':mime,'status':'pending_review'})
  match=re.fullmatch(r'/v1/records/([0-9a-f]{32})(/decision)?',route)
  if match:
   rid=match.group(1);r=D.get_item(TableName=TABLE,Key={'pk':{'S':'RECORD#'+rid},'sk':{'S':'META'}},ConsistentRead=True).get('Item')

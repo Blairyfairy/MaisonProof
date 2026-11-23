@@ -17,3 +17,10 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 **Evidence and AI triage.** Presigned uploads, malware checks, EXIF/privacy policy, image quality gate, human escalation, model/version logging, evaluation dataset and calibration; acceptance: no automated verified decision without approved controls.
 **Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
 **Status:** Planned; do not mark complete without captured execution evidence.
+
+
+## AI-assisted authenticity capability — expanded acceptance gates
+
+- Deliverable: Add WooCommerce background retry queue, permission checks, product variants and status synchronization.
+- Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
+- Status: **planned; not independently validated**.

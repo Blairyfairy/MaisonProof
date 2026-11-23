@@ -1,7 +1,10 @@
 {% assign mp_status = product.metafields.maisonproof.status.value | default: 'not_verified' %}
+{% assign mp_record = product.metafields.maisonproof.record_id.value | default: '' %}
+{% if mp_record == blank %}{% assign mp_status = 'not_verified' %}{% endif %}
 <div class="mp-proof" role="status" aria-label="MaisonProof verification status">
   <img src="{{ 'maisonproof-logo.svg' | asset_url }}" alt="MaisonProof" width="148" height="40" loading="lazy">
   <span class="mp-proof__state">{% if mp_status == 'verified' %}Verified{% elsif mp_status == 'in_review' %}Under review{% elsif mp_status == 'rejected' %}Not verified{% elsif mp_status == 'revoked' %}Verification revoked{% else %}Verification not available{% endif %}</span>
+  {% if mp_record != blank %}<span class="mp-proof__reference">Record {{ mp_record | escape | slice: 0, 12 }}</span>{% endif %}
 </div>
 <style>.mp-proof{display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #c8d9de;border-radius:12px;background:#f4f9fb;color:#17334a;font-family:Arial,sans-serif}.mp-proof__state{font-weight:600}</style>
 {% schema %}

@@ -17,3 +17,10 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 **WooCommerce production hardening.** HPOS compatibility, credential isolation, background job retries, status synchronization and revocation, accessible badge, WordPress multisite tests; acceptance: end-to-end UAT.
 **Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
 **Status:** Planned; do not mark complete without captured execution evidence.
+
+
+## AI-assisted authenticity capability — expanded acceptance gates
+
+- Deliverable: Build blinded authentic/counterfeit dataset with provenance and legal rights.
+- Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
+- Status: **planned; not independently validated**.

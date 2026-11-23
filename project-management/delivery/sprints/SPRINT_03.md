@@ -17,3 +17,10 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 **Shared trust and tenant model.** Tenant onboarding, per-merchant secret isolation, signed requests, webhook replay and idempotency, threat model; acceptance: cross-tenant access tests and key rotation drill.
 **Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
 **Status:** Planned; do not mark complete without captured execution evidence.
+
+
+## AI-assisted authenticity capability — expanded acceptance gates
+
+- Deliverable: Implement optional Bedrock image-quality triage with manual-review fallback; no automatic authenticity claims.
+- Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
+- Status: **planned; not independently validated**.

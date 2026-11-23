@@ -17,3 +17,10 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 **Shopify integration.** OAuth installation and uninstall lifecycle, webhook HMAC, webhook registration, Admin GraphQL metafield synchronization, theme app extension, privacy webhooks, app review; acceptance: verified/revoked badge sync and tenant isolation.
 **Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
 **Status:** Planned; do not mark complete without captured execution evidence.
+
+
+## AI-assisted authenticity capability — expanded acceptance gates
+
+- Deliverable: Evaluate false acceptance rate, false rejection rate, calibration, subgroup performance and drift.
+- Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
+- Status: **planned; not independently validated**.

@@ -17,3 +17,10 @@ See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsure
 **AI evaluation and independent review.** Gold-standard authentic/counterfeit dataset with rights and provenance, stratified evaluation, false-accept and false-reject rates, calibration, model drift, blinded human review; acceptance: signed evaluation report and go/no-go.
 **Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
 **Status:** Planned; do not mark complete without captured execution evidence.
+
+
+## AI-assisted authenticity capability — expanded acceptance gates
+
+- Deliverable: Run live cross-platform end-to-end tests, pen test, accessibility and disaster recovery.
+- Evidence required: traceable implementation commit, test output, owner sign-off, and explicit PASS/FAIL.
+- Status: **planned; not independently validated**.
