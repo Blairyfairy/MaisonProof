@@ -13,7 +13,7 @@
 
 ## MVP business model — Lean Canvas infographic
 
-![MaisonProof MVP Lean Canvas business model infographic, illustrating customer segments, authentication workflows, monetization, and hypothetical economic impact](assets/maisonproof-mvp-lean-canvas-infographic.png)
+![MaisonProof MVP Lean Canvas business model infographic, illustrating customer segments, authentication workflows, monetization, and hypothetical economic impact](https://blairyfairy.github.io/MaisonProof/assets/maisonproof-mvp-lean-canvas-infographic.png)
 
 > **Illustrative business concept, not a financial forecast.** Prices, revenue scenarios, conversion lift, average order value, fraud reductions, and market-impact estimates shown in this graphic are hypotheses for testing—not validated operating results or guaranteed outcomes. Some figures in the concept illustration may be internally inconsistent; use independently modeled assumptions and verified data for investment decisions. The depicted authentication operations, integrations, and partner relationships are proposed, not established.
 
@@ -227,7 +227,7 @@ Magento storefront concept, verified item seal, insured shipment and remote auth
 
 Business model, customer segments, subscription and review-fee hypotheses, and illustrative impact scenarios.
 
-![MaisonProof MVP Lean Canvas: Business model, customer segments, subscription and review-fee hypotheses, and illustrative impact scenarios.](assets/maisonproof-mvp-lean-canvas-infographic.png)
+![MaisonProof MVP Lean Canvas: Business model, customer segments, subscription and review-fee hypotheses, and illustrative impact scenarios.](https://blairyfairy.github.io/MaisonProof/assets/maisonproof-mvp-lean-canvas-infographic.png)
 
 ### 03 — Authenticated storefront
 
@@ -294,7 +294,7 @@ See the [delivery plan](https://blairyfairy.github.io/MaisonProof/project-manage
 
 ## Competitive AI authentication — investment and operating model infographic
 
-![MaisonProof competitive AI authentication investment, AWS costs, reviewer labor, solo-founder capacity, and platform workflow](assets/maisonproof-ai-competition-investment-infographic.png)
+![MaisonProof competitive AI authentication investment, AWS costs, reviewer labor, solo-founder capacity, and platform workflow](https://blairyfairy.github.io/MaisonProof/assets/maisonproof-ai-competition-investment-infographic.png)
 
 *Illustrative estimates, not vendor quotations, validated accuracy claims, or guarantees.* A narrow AI-assisted pilot is estimated at **$15,000–$40,000** in development spending, while broad multi-category competition could require **$150,000–$500,000+**. Illustrative AWS monthly budgets are **$25–$190 for 100 cases**, **$120–$850 for 1,000**, and **$700–$5,000 for 10,000**, excluding reviewer labor and major data acquisition. Trained reviewers are budgeted at **$20–$40/hour**, and senior specialists at **$40–$75+/hour**. At $30/hour, a 10-minute review costs approximately **$5** in direct labor. A solo operator could handle early volumes, but must account for escalations, customer support, security, and independent authenticity validation. AI triage is not proof of authenticity; signed certificates and verified claims require controlled decisions and audit evidence.
 
@@ -464,7 +464,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Product requirements — visual workflow</summary>
 
-![MaisonProof Product requirements workflow](project-management/viewer/images/PRD.svg)
+[MaisonProof Product requirements workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/PRD.html)
 
 [Open formatted product requirements page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/PRD.html)
 
@@ -472,7 +472,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Architecture — visual workflow</summary>
 
-![MaisonProof Architecture workflow](project-management/viewer/images/ARCHITECTURE.svg)
+[MaisonProof Architecture workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ARCHITECTURE.html)
 
 [Open formatted architecture page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ARCHITECTURE.html)
 
@@ -480,7 +480,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>API contract — visual workflow</summary>
 
-![MaisonProof API contract workflow](project-management/viewer/images/API_CONTRACT.svg)
+[MaisonProof API contract workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/API_CONTRACT.html)
 
 [Open formatted api contract page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/API_CONTRACT.html)
 
@@ -488,7 +488,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Analytics — visual workflow</summary>
 
-![MaisonProof Analytics workflow](project-management/viewer/images/ANALYTICS.svg)
+[MaisonProof Analytics workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ANALYTICS.html)
 
 [Open formatted analytics page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ANALYTICS.html)
 
@@ -496,7 +496,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint plan — visual workflow</summary>
 
-![MaisonProof Sprint plan workflow](project-management/viewer/images/SPRINTS.svg)
+[MaisonProof Sprint plan workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINTS.html)
 
 [Open formatted sprint plan page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINTS.html)
 
@@ -504,7 +504,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Authentication operations — visual workflow</summary>
 
-![MaisonProof Authentication operations workflow](project-management/viewer/images/AUTHENTICATION_OPERATIONS.svg)
+[MaisonProof Authentication operations workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/AUTHENTICATION_OPERATIONS.html)
 
 [Open formatted authentication operations page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/AUTHENTICATION_OPERATIONS.html)
 
@@ -512,7 +512,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Security and privacy — visual workflow</summary>
 
-![MaisonProof Security and privacy workflow](project-management/viewer/images/SECURITY_PRIVACY.svg)
+[MaisonProof Security and privacy workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SECURITY_PRIVACY.html)
 
 [Open formatted security and privacy page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SECURITY_PRIVACY.html)
 
@@ -520,7 +520,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Test strategy — visual workflow</summary>
 
-![MaisonProof Test strategy workflow](project-management/viewer/images/TEST_STRATEGY.svg)
+[MaisonProof Test strategy workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/TEST_STRATEGY.html)
 
 [Open formatted test strategy page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/TEST_STRATEGY.html)
 
@@ -528,7 +528,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Go-to-market — visual workflow</summary>
 
-![MaisonProof Go-to-market workflow](project-management/viewer/images/GO_TO_MARKET.svg)
+[MaisonProof Go-to-market workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/GO_TO_MARKET.html)
 
 [Open formatted go-to-market page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/GO_TO_MARKET.html)
 
@@ -536,7 +536,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Unit economics — visual workflow</summary>
 
-![MaisonProof Unit economics workflow](project-management/viewer/images/UNIT_ECONOMICS.svg)
+[MaisonProof Unit economics workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/UNIT_ECONOMICS.html)
 
 [Open formatted unit economics page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/UNIT_ECONOMICS.html)
 
@@ -544,7 +544,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Research plan — visual workflow</summary>
 
-![MaisonProof Research plan workflow](project-management/viewer/images/RESEARCH_PLAN.svg)
+[MaisonProof Research plan workflow — open interactive HTML documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/RESEARCH_PLAN.html)
 
 [Open formatted research plan page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/RESEARCH_PLAN.html)
 
@@ -552,12 +552,12 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ### Visual asset index
 
-- [All ten product experience wireframes](project-management/design/wireframes/) — storefront, route selection, shipping, remote evidence, reviewer, public record, merchant console, admin, mobile, analytics.
-- [40 visual documentation pages](project-management/viewer/) — formatted technical and business reference pages.
-- [40 scalable documentation diagrams](project-management/viewer/images/) — reusable workflow SVGs.
-- [AI investment infographic](assets/maisonproof-ai-competition-investment-infographic.png) — illustrative infrastructure and staffing ranges.
-- [MVP Lean Canvas infographic](assets/maisonproof-mvp-lean-canvas-infographic.png) — illustrative business model and unit economics.
-- [Product imagery and provenance notes](assets/products/) — demonstration references with status caveats.
+- [All ten product experience wireframes](https://blairyfairy.github.io/MaisonProof/project-management/viewer/FIGMA_HANDOFF.html) — storefront, route selection, shipping, remote evidence, reviewer, public record, merchant console, admin, mobile, analytics.
+- [40 visual documentation pages](https://blairyfairy.github.io/MaisonProof/#library) — formatted technical and business reference pages.
+- [Visual documentation library](https://blairyfairy.github.io/MaisonProof/#library) — open the formatted documentation pages.
+- [AI investment infographic](https://blairyfairy.github.io/MaisonProof/assets/maisonproof-ai-competition-investment-infographic.png) — illustrative infrastructure and staffing ranges.
+- [MVP Lean Canvas infographic](https://blairyfairy.github.io/MaisonProof/assets/maisonproof-mvp-lean-canvas-infographic.png) — illustrative business model and unit economics.
+- [Product imagery and project documentation](https://blairyfairy.github.io/MaisonProof/#library) — demonstration references with status caveats.
 
 ### Readiness and verification boundaries
 
