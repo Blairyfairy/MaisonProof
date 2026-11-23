@@ -1,4 +1,4 @@
-![MaisonProof Authentication Authority — gold monogram and white lettering on navy](assets/maisonproof-github-header.svg)
+![MaisonProof Authentication Authority](assets/maisonproof-github-white-logo.svg)
 
 > **MaisonProof is the certifying authority for its own authentication seal.** Sellers submit products for MaisonProof review; the storefront badge activates only after MaisonProof approves that exact item. Installing a plugin or supplying outside documents cannot activate the seal.
 
