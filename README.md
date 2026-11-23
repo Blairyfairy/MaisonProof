@@ -4,7 +4,7 @@
 
 # MaisonProof — Independent Luxury Authentication & Storefront Verification
 
-**[Explore the interactive product prototype](prototype/index.html)** — navigable storefront, shipment and remote intake, reviewer workflow, public verification, merchant console, delivery roadmap, and the complete 12-image design gallery. Demo data only; no live authentication, insurance, or messaging integrations.
+**[Explore the interactive product prototype](https://blairyfairy.github.io/MaisonProof/prototype/index.html)** — navigable storefront, shipment and remote intake, reviewer workflow, public verification, merchant console, delivery roadmap, and the complete 12-image design gallery. Demo data only; no live authentication, insurance, or messaging integrations.
 
 
 ![MaisonProof Magento storefront concept showing green verification seals and two authentication routes: insured shipment-based physical inspection and remote guided video, chat, and evidence review](assets/maisonproof-magento-storefront-concept.png)
@@ -121,7 +121,7 @@ The **deployment target remains AWS-only**. Evaluate the following only if indep
 | AI and trust | 09–10 | Quality triage metrics, licensed reference set, blind validation plan, certificate signing and revocation |
 | Pilot and scale | 11–12 | Security assessment, recovery drills, usability testing, real merchant pilot, cost-per-case reporting, go/no-go |
 
-**Required documentation cross-links:** [Architecture](project-management/planning/ARCHITECTURE.md), [API contract](project-management/planning/API_CONTRACT.md), [PRD](project-management/planning/PRD.md), [Roadmap](project-management/planning/ROADMAP.md), [Security and privacy](project-management/operations/SECURITY_PRIVACY.md), [Authentication operations](project-management/operations/AUTHENTICATION_OPERATIONS.md), [Test strategy](project-management/quality/TEST_STRATEGY.md), [Release checklist](project-management/quality/RELEASE_CHECKLIST.md), [Unit economics](project-management/business/UNIT_ECONOMICS.md), and [Sprints](project-management/delivery/SPRINTS.md).
+**Required documentation cross-links:** [Architecture](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ARCHITECTURE.html), [API contract](https://blairyfairy.github.io/MaisonProof/project-management/viewer/API_CONTRACT.html), [PRD](https://blairyfairy.github.io/MaisonProof/project-management/viewer/PRD.html), [Roadmap](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ROADMAP.html), [Security and privacy](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SECURITY_PRIVACY.html), [Authentication operations](https://blairyfairy.github.io/MaisonProof/project-management/viewer/AUTHENTICATION_OPERATIONS.html), [Test strategy](https://blairyfairy.github.io/MaisonProof/project-management/viewer/TEST_STRATEGY.html), [Release checklist](https://blairyfairy.github.io/MaisonProof/project-management/viewer/RELEASE_CHECKLIST.html), [Unit economics](https://blairyfairy.github.io/MaisonProof/project-management/viewer/UNIT_ECONOMICS.html), and [Sprints](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINTS.html).
 
 **Launch decision:** release a *pilot review service* only after P0 security and merchant-status gates pass and a staffed decision process exists. Do not market *AI-authenticated products* until model accuracy is independently established for the exact supported categories, with false-acceptance controls, drift monitoring, expert escalation, and an audited certificate lifecycle. Re-evaluate infrastructure and costs monthly using actual AWS Cost Explorer data and per-case time tracking.
 
@@ -210,12 +210,12 @@ MIT. No warranty of product authenticity.
 
 ## Project management, sprints and design handoff
 
-A full [PM operating kit](project-management/README.md) is included with a 13-sprint plan, 52 backlog items, risks, requirements, security/operations playbooks, UAT cases, design tokens, and 10 editable SVG wireframes for Figma import. This is a **planning package**, not evidence of completed implementation or live Figma integration. The two original visuals above remain unchanged.
+A full [PM operating kit](https://blairyfairy.github.io/MaisonProof/#library) is included with a 13-sprint plan, 52 backlog items, risks, requirements, security/operations playbooks, UAT cases, design tokens, and 10 editable SVG wireframes for Figma import. This is a **planning package**, not evidence of completed implementation or live Figma integration. The two original visuals above remain unchanged.
 
 
 ## Visual experience and screen library
 
-The visual inventory below includes **every image in this repository**: the two original branded concept images and all ten editable SVG wireframes. The concepts are illustrative, not evidence of an operating authentication service. The Lean Canvas numbers are unvalidated scenario assumptions. For an interactive, responsive overview, open [Project overview](index.html).
+The visual inventory below includes **every image in this repository**: the two original branded concept images and all ten editable SVG wireframes. The concepts are illustrative, not evidence of an operating authentication service. The Lean Canvas numbers are unvalidated scenario assumptions. For an interactive, responsive overview, open [Project overview](https://blairyfairy.github.io/MaisonProof/index.html).
 
 ### 01 — Storefront & verification experience
 
@@ -289,7 +289,7 @@ Merchant analytics and conversion measurement
 
 ![MaisonProof Merchant analytics: Merchant analytics and conversion measurement](project-management/design/wireframes/10-analytics.svg)
 
-See the [delivery plan](project-management/delivery/SPRINTS.md), [product requirements](project-management/planning/PRD.md), [design handoff](project-management/design/FIGMA_HANDOFF.md), and [project hub](project-management/README.md).
+See the [delivery plan](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINTS.html), [product requirements](https://blairyfairy.github.io/MaisonProof/project-management/viewer/PRD.html), [design handoff](https://blairyfairy.github.io/MaisonProof/project-management/viewer/FIGMA_HANDOFF.html), and [project hub](https://blairyfairy.github.io/MaisonProof/#library).
 
 
 ## Competitive AI authentication — investment and operating model infographic
@@ -333,11 +333,11 @@ These images are **product references, not evidence of ownership, inspection, pr
 
 | Stage | Current design reference | Governing document |
 |---|---|---|
-| 1. Merchant initiates a case | [Route selection](project-management/design/wireframes/02-route-selection.svg) | [Product requirements](project-management/planning/PRD.md) |
-| 2. Shipment or remote evidence intake | [Shipment](project-management/design/wireframes/03-shipment.svg) / [Remote](project-management/design/wireframes/04-remote.svg) | [Authentication operations](project-management/operations/AUTHENTICATION_OPERATIONS.md) |
-| 3. Reviewer considers evidence | [Reviewer console](project-management/design/wireframes/05-reviewer.svg) | [Security and privacy](project-management/operations/SECURITY_PRIVACY.md) |
-| 4. Item-specific decision recorded | [Public record](project-management/design/wireframes/06-public-record.svg) | [API contract](project-management/planning/API_CONTRACT.md) |
-| 5. Approved badge syncs to merchant catalog | [Merchant dashboard](project-management/design/wireframes/07-merchant-dashboard.svg) | [Test strategy](project-management/quality/TEST_STRATEGY.md) |
+| 1. Merchant initiates a case | [Route selection](project-management/design/wireframes/02-route-selection.svg) | [Product requirements](https://blairyfairy.github.io/MaisonProof/project-management/viewer/PRD.html) |
+| 2. Shipment or remote evidence intake | [Shipment](project-management/design/wireframes/03-shipment.svg) / [Remote](project-management/design/wireframes/04-remote.svg) | [Authentication operations](https://blairyfairy.github.io/MaisonProof/project-management/viewer/AUTHENTICATION_OPERATIONS.html) |
+| 3. Reviewer considers evidence | [Reviewer console](project-management/design/wireframes/05-reviewer.svg) | [Security and privacy](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SECURITY_PRIVACY.html) |
+| 4. Item-specific decision recorded | [Public record](project-management/design/wireframes/06-public-record.svg) | [API contract](https://blairyfairy.github.io/MaisonProof/project-management/viewer/API_CONTRACT.html) |
+| 5. Approved badge syncs to merchant catalog | [Merchant dashboard](project-management/design/wireframes/07-merchant-dashboard.svg) | [Test strategy](https://blairyfairy.github.io/MaisonProof/project-management/viewer/TEST_STRATEGY.html) |
 
 **Trust rule:** a plugin install, merchant claim, third-party paperwork, or AI score alone must never activate the MaisonProof verified seal. Approval requires a MaisonProof-controlled case decision and auditable evidence. The prototype illustrates this rule; it is not a live certification service.
 
@@ -360,105 +360,105 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 <details><summary>Sprint 00 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 00 planning and verification workflow](project-management/viewer/SPRINT_00.html)
+[MaisonProof sprint 00 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_00.html)
 
-[Open sprint 00 documentation](project-management/viewer/SPRINT_00.html)
+[Open sprint 00 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_00.html)
 
 </details>
 
 <details><summary>Sprint 01 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 01 planning and verification workflow](project-management/viewer/SPRINT_01.html)
+[MaisonProof sprint 01 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_01.html)
 
-[Open sprint 01 documentation](project-management/viewer/SPRINT_01.html)
+[Open sprint 01 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_01.html)
 
 </details>
 
 <details><summary>Sprint 02 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 02 planning and verification workflow](project-management/viewer/SPRINT_02.html)
+[MaisonProof sprint 02 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_02.html)
 
-[Open sprint 02 documentation](project-management/viewer/SPRINT_02.html)
+[Open sprint 02 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_02.html)
 
 </details>
 
 <details><summary>Sprint 03 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 03 planning and verification workflow](project-management/viewer/SPRINT_03.html)
+[MaisonProof sprint 03 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_03.html)
 
-[Open sprint 03 documentation](project-management/viewer/SPRINT_03.html)
+[Open sprint 03 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_03.html)
 
 </details>
 
 <details><summary>Sprint 04 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 04 planning and verification workflow](project-management/viewer/SPRINT_04.html)
+[MaisonProof sprint 04 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_04.html)
 
-[Open sprint 04 documentation](project-management/viewer/SPRINT_04.html)
+[Open sprint 04 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_04.html)
 
 </details>
 
 <details><summary>Sprint 05 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 05 planning and verification workflow](project-management/viewer/SPRINT_05.html)
+[MaisonProof sprint 05 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_05.html)
 
-[Open sprint 05 documentation](project-management/viewer/SPRINT_05.html)
+[Open sprint 05 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_05.html)
 
 </details>
 
 <details><summary>Sprint 06 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 06 planning and verification workflow](project-management/viewer/SPRINT_06.html)
+[MaisonProof sprint 06 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_06.html)
 
-[Open sprint 06 documentation](project-management/viewer/SPRINT_06.html)
+[Open sprint 06 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_06.html)
 
 </details>
 
 <details><summary>Sprint 07 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 07 planning and verification workflow](project-management/viewer/SPRINT_07.html)
+[MaisonProof sprint 07 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_07.html)
 
-[Open sprint 07 documentation](project-management/viewer/SPRINT_07.html)
+[Open sprint 07 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_07.html)
 
 </details>
 
 <details><summary>Sprint 08 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 08 planning and verification workflow](project-management/viewer/SPRINT_08.html)
+[MaisonProof sprint 08 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_08.html)
 
-[Open sprint 08 documentation](project-management/viewer/SPRINT_08.html)
+[Open sprint 08 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_08.html)
 
 </details>
 
 <details><summary>Sprint 09 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 09 planning and verification workflow](project-management/viewer/SPRINT_09.html)
+[MaisonProof sprint 09 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_09.html)
 
-[Open sprint 09 documentation](project-management/viewer/SPRINT_09.html)
+[Open sprint 09 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_09.html)
 
 </details>
 
 <details><summary>Sprint 10 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 10 planning and verification workflow](project-management/viewer/SPRINT_10.html)
+[MaisonProof sprint 10 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_10.html)
 
-[Open sprint 10 documentation](project-management/viewer/SPRINT_10.html)
+[Open sprint 10 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_10.html)
 
 </details>
 
 <details><summary>Sprint 11 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 11 planning and verification workflow](project-management/viewer/SPRINT_11.html)
+[MaisonProof sprint 11 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_11.html)
 
-[Open sprint 11 documentation](project-management/viewer/SPRINT_11.html)
+[Open sprint 11 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_11.html)
 
 </details>
 
 <details><summary>Sprint 12 — visual workflow and detailed page</summary>
 
-[MaisonProof sprint 12 planning and verification workflow](project-management/viewer/SPRINT_12.html)
+[MaisonProof sprint 12 planning and verification workflow](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_12.html)
 
-[Open sprint 12 documentation](project-management/viewer/SPRINT_12.html)
+[Open sprint 12 documentation](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINT_12.html)
 
 </details>
 
@@ -466,7 +466,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Product requirements workflow](project-management/viewer/images/PRD.svg)
 
-[Open formatted product requirements page](project-management/viewer/PRD.html)
+[Open formatted product requirements page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/PRD.html)
 
 </details>
 
@@ -474,7 +474,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Architecture workflow](project-management/viewer/images/ARCHITECTURE.svg)
 
-[Open formatted architecture page](project-management/viewer/ARCHITECTURE.html)
+[Open formatted architecture page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ARCHITECTURE.html)
 
 </details>
 
@@ -482,7 +482,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof API contract workflow](project-management/viewer/images/API_CONTRACT.svg)
 
-[Open formatted api contract page](project-management/viewer/API_CONTRACT.html)
+[Open formatted api contract page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/API_CONTRACT.html)
 
 </details>
 
@@ -490,7 +490,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Analytics workflow](project-management/viewer/images/ANALYTICS.svg)
 
-[Open formatted analytics page](project-management/viewer/ANALYTICS.html)
+[Open formatted analytics page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/ANALYTICS.html)
 
 </details>
 
@@ -498,7 +498,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Sprint plan workflow](project-management/viewer/images/SPRINTS.svg)
 
-[Open formatted sprint plan page](project-management/viewer/SPRINTS.html)
+[Open formatted sprint plan page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SPRINTS.html)
 
 </details>
 
@@ -506,7 +506,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Authentication operations workflow](project-management/viewer/images/AUTHENTICATION_OPERATIONS.svg)
 
-[Open formatted authentication operations page](project-management/viewer/AUTHENTICATION_OPERATIONS.html)
+[Open formatted authentication operations page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/AUTHENTICATION_OPERATIONS.html)
 
 </details>
 
@@ -514,7 +514,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Security and privacy workflow](project-management/viewer/images/SECURITY_PRIVACY.svg)
 
-[Open formatted security and privacy page](project-management/viewer/SECURITY_PRIVACY.html)
+[Open formatted security and privacy page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/SECURITY_PRIVACY.html)
 
 </details>
 
@@ -522,7 +522,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Test strategy workflow](project-management/viewer/images/TEST_STRATEGY.svg)
 
-[Open formatted test strategy page](project-management/viewer/TEST_STRATEGY.html)
+[Open formatted test strategy page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/TEST_STRATEGY.html)
 
 </details>
 
@@ -530,7 +530,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Go-to-market workflow](project-management/viewer/images/GO_TO_MARKET.svg)
 
-[Open formatted go-to-market page](project-management/viewer/GO_TO_MARKET.html)
+[Open formatted go-to-market page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/GO_TO_MARKET.html)
 
 </details>
 
@@ -538,7 +538,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Unit economics workflow](project-management/viewer/images/UNIT_ECONOMICS.svg)
 
-[Open formatted unit economics page](project-management/viewer/UNIT_ECONOMICS.html)
+[Open formatted unit economics page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/UNIT_ECONOMICS.html)
 
 </details>
 
@@ -546,7 +546,7 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ![MaisonProof Research plan workflow](project-management/viewer/images/RESEARCH_PLAN.svg)
 
-[Open formatted research plan page](project-management/viewer/RESEARCH_PLAN.html)
+[Open formatted research plan page](https://blairyfairy.github.io/MaisonProof/project-management/viewer/RESEARCH_PLAN.html)
 
 </details>
 
@@ -561,4 +561,4 @@ The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT
 
 ### Readiness and verification boundaries
 
-**Demonstrated in this repository:** source code, illustrative UI, documentation, workflow diagrams and integration scaffolding. **Requires separate validation before a commercial claim:** live deployment, security review, independent AI accuracy evaluation, production payment/insurance/shipping integrations, platform app approval, expert-review staffing and real item authentication. Consult the [release checklist](project-management/quality/RELEASE_CHECKLIST.md) and [test strategy](project-management/quality/TEST_STRATEGY.md) for evidence gates.
+**Demonstrated in this repository:** source code, illustrative UI, documentation, workflow diagrams and integration scaffolding. **Requires separate validation before a commercial claim:** live deployment, security review, independent AI accuracy evaluation, production payment/insurance/shipping integrations, platform app approval, expert-review staffing and real item authentication. Consult the [release checklist](https://blairyfairy.github.io/MaisonProof/project-management/viewer/RELEASE_CHECKLIST.html) and [test strategy](https://blairyfairy.github.io/MaisonProof/project-management/viewer/TEST_STRATEGY.html) for evidence gates.
