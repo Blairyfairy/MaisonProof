@@ -12,3 +12,8 @@ Planning: size stories and capacity; daily blockers; mid-sprint refinement; end-
 No critical security/trust regressions; accessibility checks; acceptance criteria met; Product and relevant Trust/Security leads approve; RAID and roadmap updated.
 ## Dependencies / risks
 See `../DEPENDENCIES.md` and `../RAID.md`. Unstaffed reviewer roles and uninsured shipments block any real-world authentication service.
+
+## Expanded multi-platform / AI / AWS scope (proposed, not completed)
+**Enterprise readiness and launch gates.** Load and security testing, disaster recovery, secret rotation, penetration test, SOC2 readiness gap review, billing reconciliation, support SLAs, incident response and privacy deletion; acceptance: approved release checklist and documented exceptions.
+**Deliverables:** architecture decision, code changes, test fixtures, deployment steps, rollback steps, evidence links and named sign-off owner.
+**Status:** Planned; do not mark complete without captured execution evidence.

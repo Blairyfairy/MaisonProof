@@ -23,6 +23,16 @@ Parameters:
   ReviewerAppClientId:
     Type: String
     Description: Existing Cognito app client ID with authorization code + PKCE
+  ShopifySecretArn:
+    Type: String
+    Description: Existing Secrets Manager ARN containing the Shopify app client secret
+  ShopifyAllowedShops:
+    Type: String
+    Description: Comma-separated allowlist of installed .myshopify.com domains
+    AllowedPattern: '[a-zA-Z0-9.,-]+'
+  ShopifyArtifactKey:
+    Type: String
+    Default: maisonproof/shopify-webhook.zip
   AllowedOrigin:
     Type: String
     Default: https://example.com
@@ -164,6 +174,47 @@ Resources:
           REVIEWER_POOL_ID: !Ref ReviewerUserPoolId
           REVIEWER_CLIENT_ID: !Ref ReviewerAppClientId
           AWS_REGION_NAME: !Ref AWS::Region
+  ShopifyWebhookRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: lambda.amazonaws.com}
+            Action: sts:AssumeRole
+      ManagedPolicyArns: [arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole]
+      Policies:
+        - PolicyName: ShopifyWebhookMinimal
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: [dynamodb:TransactWriteItems]
+                Resource: !GetAtt Records.Arn
+              - Effect: Allow
+                Action: [sqs:SendMessage]
+                Resource: !GetAtt SubmissionQueue.Arn
+              - Effect: Allow
+                Action: [secretsmanager:GetSecretValue]
+                Resource: !Ref ShopifySecretArn
+  ShopifyWebhookFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: shopify_webhook.handler
+      Role: !GetAtt ShopifyWebhookRole.Arn
+      Code: {S3Bucket: !Ref ArtifactBucket, S3Key: !Ref ShopifyArtifactKey}
+      Timeout: 10
+      MemorySize: 256
+      ReservedConcurrentExecutions: 10
+      Environment:
+        Variables:
+          TABLE: !Ref Records
+          QUEUE_URL: !Ref SubmissionQueue
+          SHOPIFY_SECRET_ARN: !Ref ShopifySecretArn
+          ALLOWED_SHOPS: !Ref ShopifyAllowedShops
   WorkerFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -201,6 +252,26 @@ Resources:
       IntegrationType: AWS_PROXY
       IntegrationUri: !GetAtt ApiFunction.Arn
       PayloadFormatVersion: '2.0'
+  ShopifyIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref HttpApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !GetAtt ShopifyWebhookFunction.Arn
+      PayloadFormatVersion: '2.0'
+  ShopifyWebhookRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref HttpApi
+      RouteKey: 'POST /v1/shopify/webhook'
+      Target: !Sub 'integrations/${ShopifyIntegration}'
+  ShopifyInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ShopifyWebhookFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${HttpApi}/*/POST/v1/shopify/webhook'
   ApiRouteSubmit:
     Type: AWS::ApiGatewayV2::Route
     Properties: {ApiId: !Ref HttpApi, RouteKey: 'POST /v1/submissions', Target: !Sub 'integrations/${ApiIntegration}'}
