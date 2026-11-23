@@ -1,4 +1,4 @@
-![MaisonProof brand identity](assets/maisonproof-logo.svg)
+![MaisonProof Authentication Authority — gold monogram and white lettering on navy](assets/maisonproof-github-header.svg)
 
 > **MaisonProof is the certifying authority for its own authentication seal.** Sellers submit products for MaisonProof review; the storefront badge activates only after MaisonProof approves that exact item. Installing a plugin or supplying outside documents cannot activate the seal.
 
@@ -297,3 +297,268 @@ See the [delivery plan](project-management/delivery/SPRINTS.md), [product requir
 ![MaisonProof competitive AI authentication investment, AWS costs, reviewer labor, solo-founder capacity, and platform workflow](assets/maisonproof-ai-competition-investment-infographic.png)
 
 *Illustrative estimates, not vendor quotations, validated accuracy claims, or guarantees.* A narrow AI-assisted pilot is estimated at **$15,000–$40,000** in development spending, while broad multi-category competition could require **$150,000–$500,000+**. Illustrative AWS monthly budgets are **$25–$190 for 100 cases**, **$120–$850 for 1,000**, and **$700–$5,000 for 10,000**, excluding reviewer labor and major data acquisition. Trained reviewers are budgeted at **$20–$40/hour**, and senior specialists at **$40–$75+/hour**. At $30/hour, a 10-minute review costs approximately **$5** in direct labor. A solo operator could handle early volumes, but must account for escalations, customer support, security, and independent authenticity validation. AI triage is not proof of authenticity; signed certificates and verified claims require controlled decisions and audit evidence.
+
+
+---
+
+## Application atlas — screens, product imagery and implementation maps
+
+This gallery documents the **current repository's prototype, illustrative product catalog, design assets, and planned architecture**. Visuals are concepts or demonstrations unless independently tested and documented. No displayed example is a MaisonProof authentication certificate.
+
+**[Live homepage](https://blairyfairy.github.io/MaisonProof/)** · **[Interactive prototype](https://blairyfairy.github.io/MaisonProof/prototype/)** · **[Working documentation](https://blairyfairy.github.io/MaisonProof/#library)** · **[Source repository](https://github.com/blairyfairy/MaisonProof)**
+
+### Product catalog — illustrative references, not authentication decisions
+
+| Gucci Jackie 1961 | Rolex Oyster Perpetual 36 |
+|:---:|:---:|
+| ![Illustrative Gucci Jackie 1961 product reference](assets/products/gucci-jackie-1961.png) | ![Illustrative Rolex Oyster Perpetual 36 product reference](assets/products/rolex-oyster-perpetual-36.png) |
+| Demonstration record only | Not verified |
+
+| Louis Vuitton Speedy Bandoulière 25 | Cartier LOVE Bracelet Small |
+|:---:|:---:|
+| ![Illustrative Louis Vuitton Speedy Bandoulière 25 product reference](assets/products/lv-speedy-bandouliere-25.png) | ![Illustrative Cartier LOVE Bracelet Small product reference](assets/products/cartier-love-small.png) |
+| Demonstration record only | Not verified |
+
+These images are **product references, not evidence of ownership, inspection, provenance, or authenticity**. Consult [image source and accuracy notes](assets/products/SOURCES_AND_ACCURACY.md) and the [product catalog](assets/products/catalog.json).
+
+### Trust states and storefront presentation
+
+![MaisonProof product verification states design](assets/verification-states-concept.png)
+
+![MaisonProof Magento storefront concept](assets/maisonproof-magento-storefront-concept.png)
+
+![MaisonProof unverified-state seal](assets/maisonproof-status-not-verified.svg)
+
+### From merchant submission to authoritative approval
+
+| Stage | Current design reference | Governing document |
+|---|---|---|
+| 1. Merchant initiates a case | [Route selection](project-management/design/wireframes/02-route-selection.svg) | [Product requirements](project-management/planning/PRD.md) |
+| 2. Shipment or remote evidence intake | [Shipment](project-management/design/wireframes/03-shipment.svg) / [Remote](project-management/design/wireframes/04-remote.svg) | [Authentication operations](project-management/operations/AUTHENTICATION_OPERATIONS.md) |
+| 3. Reviewer considers evidence | [Reviewer console](project-management/design/wireframes/05-reviewer.svg) | [Security and privacy](project-management/operations/SECURITY_PRIVACY.md) |
+| 4. Item-specific decision recorded | [Public record](project-management/design/wireframes/06-public-record.svg) | [API contract](project-management/planning/API_CONTRACT.md) |
+| 5. Approved badge syncs to merchant catalog | [Merchant dashboard](project-management/design/wireframes/07-merchant-dashboard.svg) | [Test strategy](project-management/quality/TEST_STRATEGY.md) |
+
+**Trust rule:** a plugin install, merchant claim, third-party paperwork, or AI score alone must never activate the MaisonProof verified seal. Approval requires a MaisonProof-controlled case decision and auditable evidence. The prototype illustrates this rule; it is not a live certification service.
+
+### Platform architecture and integration surfaces
+
+| Integration | Repository entry | Intended role |
+|---|---|---|
+| WooCommerce / WordPress | [`wordpress/`](wordpress/) | Product and order workflow, status display and API connectivity |
+| Magento / Adobe Commerce | [`magento/`](magento/) | Storefront badge and merchant catalog integration |
+| Shopify | [`shopify/`](shopify/) | Merchant installation and approved-state presentation |
+| AWS backend | [`aws/`](aws/) | Evidence intake, case records, event processing, audit and decision services |
+| Product prototype | [`prototype/`](prototype/) | Interactive experience for design and testing |
+| Engineering documents | [`project-management/planning/`](project-management/planning/) | API, architecture, requirements and technical decisions |
+
+These directories contain implementation work and design plans; **their presence does not establish production deployment, validated AI accuracy, operational insurance, or approved marketplace distribution**.
+
+### Visual planning and sprint map
+
+The repository includes 13 sprint-position diagrams (`SPRINT_00` through `SPRINT_12`) and visual summaries for planning, delivery, operations, quality, business, research, and design. The diagrams show **intended workflows**, not completion status.
+
+<details><summary>Sprint 00 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 00 planning and verification workflow](project-management/viewer/images/SPRINT_00.svg)
+
+[Open sprint 00 documentation](project-management/viewer/SPRINT_00.html)
+
+</details>
+
+<details><summary>Sprint 01 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 01 planning and verification workflow](project-management/viewer/images/SPRINT_01.svg)
+
+[Open sprint 01 documentation](project-management/viewer/SPRINT_01.html)
+
+</details>
+
+<details><summary>Sprint 02 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 02 planning and verification workflow](project-management/viewer/images/SPRINT_02.svg)
+
+[Open sprint 02 documentation](project-management/viewer/SPRINT_02.html)
+
+</details>
+
+<details><summary>Sprint 03 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 03 planning and verification workflow](project-management/viewer/images/SPRINT_03.svg)
+
+[Open sprint 03 documentation](project-management/viewer/SPRINT_03.html)
+
+</details>
+
+<details><summary>Sprint 04 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 04 planning and verification workflow](project-management/viewer/images/SPRINT_04.svg)
+
+[Open sprint 04 documentation](project-management/viewer/SPRINT_04.html)
+
+</details>
+
+<details><summary>Sprint 05 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 05 planning and verification workflow](project-management/viewer/images/SPRINT_05.svg)
+
+[Open sprint 05 documentation](project-management/viewer/SPRINT_05.html)
+
+</details>
+
+<details><summary>Sprint 06 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 06 planning and verification workflow](project-management/viewer/images/SPRINT_06.svg)
+
+[Open sprint 06 documentation](project-management/viewer/SPRINT_06.html)
+
+</details>
+
+<details><summary>Sprint 07 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 07 planning and verification workflow](project-management/viewer/images/SPRINT_07.svg)
+
+[Open sprint 07 documentation](project-management/viewer/SPRINT_07.html)
+
+</details>
+
+<details><summary>Sprint 08 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 08 planning and verification workflow](project-management/viewer/images/SPRINT_08.svg)
+
+[Open sprint 08 documentation](project-management/viewer/SPRINT_08.html)
+
+</details>
+
+<details><summary>Sprint 09 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 09 planning and verification workflow](project-management/viewer/images/SPRINT_09.svg)
+
+[Open sprint 09 documentation](project-management/viewer/SPRINT_09.html)
+
+</details>
+
+<details><summary>Sprint 10 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 10 planning and verification workflow](project-management/viewer/images/SPRINT_10.svg)
+
+[Open sprint 10 documentation](project-management/viewer/SPRINT_10.html)
+
+</details>
+
+<details><summary>Sprint 11 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 11 planning and verification workflow](project-management/viewer/images/SPRINT_11.svg)
+
+[Open sprint 11 documentation](project-management/viewer/SPRINT_11.html)
+
+</details>
+
+<details><summary>Sprint 12 — visual workflow and detailed page</summary>
+
+![MaisonProof sprint 12 planning and verification workflow](project-management/viewer/images/SPRINT_12.svg)
+
+[Open sprint 12 documentation](project-management/viewer/SPRINT_12.html)
+
+</details>
+
+<details><summary>Product requirements — visual workflow</summary>
+
+![MaisonProof Product requirements workflow](project-management/viewer/images/PRD.svg)
+
+[Open formatted product requirements page](project-management/viewer/PRD.html)
+
+</details>
+
+<details><summary>Architecture — visual workflow</summary>
+
+![MaisonProof Architecture workflow](project-management/viewer/images/ARCHITECTURE.svg)
+
+[Open formatted architecture page](project-management/viewer/ARCHITECTURE.html)
+
+</details>
+
+<details><summary>API contract — visual workflow</summary>
+
+![MaisonProof API contract workflow](project-management/viewer/images/API_CONTRACT.svg)
+
+[Open formatted api contract page](project-management/viewer/API_CONTRACT.html)
+
+</details>
+
+<details><summary>Analytics — visual workflow</summary>
+
+![MaisonProof Analytics workflow](project-management/viewer/images/ANALYTICS.svg)
+
+[Open formatted analytics page](project-management/viewer/ANALYTICS.html)
+
+</details>
+
+<details><summary>Sprint plan — visual workflow</summary>
+
+![MaisonProof Sprint plan workflow](project-management/viewer/images/SPRINTS.svg)
+
+[Open formatted sprint plan page](project-management/viewer/SPRINTS.html)
+
+</details>
+
+<details><summary>Authentication operations — visual workflow</summary>
+
+![MaisonProof Authentication operations workflow](project-management/viewer/images/AUTHENTICATION_OPERATIONS.svg)
+
+[Open formatted authentication operations page](project-management/viewer/AUTHENTICATION_OPERATIONS.html)
+
+</details>
+
+<details><summary>Security and privacy — visual workflow</summary>
+
+![MaisonProof Security and privacy workflow](project-management/viewer/images/SECURITY_PRIVACY.svg)
+
+[Open formatted security and privacy page](project-management/viewer/SECURITY_PRIVACY.html)
+
+</details>
+
+<details><summary>Test strategy — visual workflow</summary>
+
+![MaisonProof Test strategy workflow](project-management/viewer/images/TEST_STRATEGY.svg)
+
+[Open formatted test strategy page](project-management/viewer/TEST_STRATEGY.html)
+
+</details>
+
+<details><summary>Go-to-market — visual workflow</summary>
+
+![MaisonProof Go-to-market workflow](project-management/viewer/images/GO_TO_MARKET.svg)
+
+[Open formatted go-to-market page](project-management/viewer/GO_TO_MARKET.html)
+
+</details>
+
+<details><summary>Unit economics — visual workflow</summary>
+
+![MaisonProof Unit economics workflow](project-management/viewer/images/UNIT_ECONOMICS.svg)
+
+[Open formatted unit economics page](project-management/viewer/UNIT_ECONOMICS.html)
+
+</details>
+
+<details><summary>Research plan — visual workflow</summary>
+
+![MaisonProof Research plan workflow](project-management/viewer/images/RESEARCH_PLAN.svg)
+
+[Open formatted research plan page](project-management/viewer/RESEARCH_PLAN.html)
+
+</details>
+
+### Visual asset index
+
+- [All ten product experience wireframes](project-management/design/wireframes/) — storefront, route selection, shipping, remote evidence, reviewer, public record, merchant console, admin, mobile, analytics.
+- [40 visual documentation pages](project-management/viewer/) — formatted technical and business reference pages.
+- [40 scalable documentation diagrams](project-management/viewer/images/) — reusable workflow SVGs.
+- [AI investment infographic](assets/maisonproof-ai-competition-investment-infographic.png) — illustrative infrastructure and staffing ranges.
+- [MVP Lean Canvas infographic](assets/maisonproof-mvp-lean-canvas-infographic.png) — illustrative business model and unit economics.
+- [Product imagery and provenance notes](assets/products/) — demonstration references with status caveats.
+
+### Readiness and verification boundaries
+
+**Demonstrated in this repository:** source code, illustrative UI, documentation, workflow diagrams and integration scaffolding. **Requires separate validation before a commercial claim:** live deployment, security review, independent AI accuracy evaluation, production payment/insurance/shipping integrations, platform app approval, expert-review staffing and real item authentication. Consult the [release checklist](project-management/quality/RELEASE_CHECKLIST.md) and [test strategy](project-management/quality/TEST_STRATEGY.md) for evidence gates.
