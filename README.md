@@ -19,6 +19,114 @@
 
 MaisonProof's proposed business model is to help independent merchants retain their own storefronts and transactions while purchasing item-level authentication services and optional platform subscriptions. It is **not** a resale marketplace. Actual merchant benefits must be measured against review fees, shipping and insurance costs, turnaround time, and customer trust outcomes.
 
+## Competitive technology, AI authenticity roadmap, AWS spending and investment requirements (November 2026)
+
+> **Status and evidence boundary.** This section is a forward-looking technical and commercial plan, **not** evidence that MaisonProof already authenticates luxury goods with AI or outperforms Entrupy, LegitApp, or another provider. The original repository is an MVP/scaffold. The subsequent three-platform/AWS enhancement packages provide additional integration and infrastructure foundations, but no live AWS deployment, complete Shopify OAuth lifecycle, independently validated counterfeit classifier, real authentication accuracy, or qualified production review operation is established by the materials inspected. Do not advertise accuracy, insurance coverage, brand partnerships, guaranteed turnaround, or production readiness without verification.
+
+### 1. The actual competitive objective
+
+Compete on **merchant ownership and multi-platform interoperability**, **evidence transparency**, **item-bound and revocable certificates**, **human-accountable decisions**, **fast guided capture**, and **measured low total cost per accepted case**. Entrupy's public process uses guided photography, brand/material selection, AI and expert review; it advertises 99.86% accuracy and a financial guarantee. These are **vendor claims**, not directly comparable to MaisonProof without a common blinded test set, matched category mix and decision policy. Source: [Entrupy's process and accuracy claims](https://www.entrupy.com/how-to-use/). Avoid implying that a generic multimodal LLM's description of an image proves authenticity.
+
+**Required differentiated product:** a consistent MaisonProof-branded, accessibility-tested interface in Shopify, WooCommerce and Magento; two evidence routes (remote-guided and insured physical inspection, when operationally available); API-first case orchestration; seller-controlled catalog integration but MaisonProof-controlled decisions; transparent public verification and revocation; documented risk and evidence boundaries. Do not show a green authenticated badge for pending, inconclusive, disputed, revoked or unmatched items. Ensure item binding cannot be bypassed by a merchant editing a metafield.
+
+### 2. Target system and feature gates
+
+| Layer | AWS-first technology | Minimum completion requirement | Cost control |
+|---|---|---|---|
+| Merchant integrations | Shopify app + theme app extension; WooCommerce PHP plugin; Magento 2 module | Secure installation/uninstallation, per-shop credentials, catalog publish/update/delete hooks, idempotent webhooks, status synchronization, localized storefront badges, consent and error UX | One shared API, thin platform adapters |
+| Edge/API | API Gateway HTTP API, Lambda, custom domain with ACM | Signature validation, short-lived credentials, rate limits, input schemas, replay protection, merchant isolation, safe public read APIs | HTTP API rather than REST API where features suffice |
+| Case workflow | SQS + DLQ, Lambda, optional Step Functions Express | Durable workflow, retry/backoff, poison-message quarantine, case SLA timers, compensating actions, operator replay | Event-driven, avoid always-on workers |
+| Evidence | S3 private/versioned, presigned multipart uploads, SHA-256, lifecycle rules | Virus/malware scanning, MIME/magic-byte checks, limits, immutable decision evidence, retention and deletion policy, explicit media consent | S3 lifecycle and tiered retention |
+| Metadata and audit | DynamoDB on-demand, conditional writes, TTL for ephemeral data | Item and tenant keys, status history, immutable decision events, dual-control on sensitive changes, dispute trail | On-demand initially; evaluate provisioned later |
+| Identity/security | Cognito for reviewers, Secrets Manager, KMS, CloudTrail, IAM | MFA, least privilege, credential rotation, per-merchant isolation, access logging, incident runbooks, encryption | Avoid unnecessary NAT gateways and idle VPC resources |
+| AI quality triage | Bedrock vision-capable model (optional) | Detect missing views, blur, glare, occlusion, inconsistent metadata, unsupported categories; return reasons and recapture instructions | Invoke only on new/changed evidence; cache by content hash |
+| Authenticity scoring | Curated labeled dataset + category-specific classifier on SageMaker (later) | Brand/category-specific out-of-distribution tests, calibrated thresholds, false-accept risk, explainable reviewer evidence | Train periodically; batch inference or scale-to-zero where supported |
+| Expert review | Human reviewer queue and QA | Reviewer credentials, conflict-of-interest controls, second review for high-risk cases, blind audits, escalation to physical examination | AI triages routine completeness, not final authenticity |
+| Certificates and trust | Signed JSON attestation, KMS-backed signing, verification URL, revocation registry | Public status, item binding, cryptographic verification, expiry and revalidation, no private evidence leakage | Small public response; cache safe read-only responses briefly |
+| Reliability | CloudWatch alarms, SNS, backup/PITR, deployment pipelines | RTO/RPO targets, restore drills, DLQ alerts, security regression tests, rollback, SLO dashboards | Begin single region; multi-region only after business justification |
+
+**Important security choices:** Shopify webhooks must validate Shopify's HMAC over the raw request body; Shopify app installation must use the current supported authorization/session-token approach. WooCommerce and Magento must sign outgoing requests with distinct merchant secrets and timestamps/nonces, and rotate credentials. Do not expose write credentials in themes, product HTML, or browser-side JavaScript. For public verification, a certificate signature is not enough: always check live revocation and item binding.
+
+### 3. What must be built before claiming competitive parity
+
+| Priority | Deliverable | Acceptance test / proof |
+|---|---|---|
+| P0 | Three installable integrations | Install, configure, publish, update, delete, uninstall, replay and failure-mode tests on live sandbox shops for all three platforms |
+| P0 | Merchant isolation and identity | Cross-tenant negative tests, replay/HMAC tests, MFA, scoped credentials, key rotation, audit trails |
+| P0 | Fail-closed badge and signed records | Green seal only for current, exact-item approved decisions; revoked/expired/unknown never display approval; public verification is accessible and accessible by keyboard |
+| P0 | Evidence chain and reviewer workflow | Tamper-evident audit events, verified evidence hashes, consent/retention, decision authority, dispute and appeal path |
+| P1 | Guided capture and completeness AI | Capture protocol by category, quality metrics, repeatability tests, explicit human handoff; model cannot self-certify |
+| P1 | Reference corpus and labeling | Rights-cleared authentic/counterfeit samples, chain-of-custody labels, brand/style/era coverage, leakage-free train/test split |
+| P1 | Independently measured classifier | Blind prospective evaluation, confusion matrices, FAR/FRR by brand/material/era, confidence calibration, unknown-item rejection, drift alarms |
+| P1 | Operational review and insured shipment | Qualified reviewers, custody logs, vetted carrier/insurer agreements, pricing and exclusions, documented claims handling |
+| P2 | Commercial proof | Paid pilot retention, verified turnaround, customer disputes, per-case gross margin, merchant conversion A/B test |
+| P2 | Enterprise compliance | Pen test, threat model, incident response exercise, privacy impact assessment, vendor due diligence, independent audit as needed |
+
+**Stop/go rule:** never auto-approve solely from a general-purpose vision model. Until an independently tested authenticity classifier and specialist operating process exist, use AI for **evidence quality triage and review assistance only**. No defensible percentage of competitor superiority can be claimed before controlled head-to-head measurement.
+
+### 4. AWS spending: lean launch versus production
+
+All dollar amounts below are **illustrative USD monthly planning allowances**, not AWS quotes, committed prices or guaranteed bills. Assume one US AWS region, one account/environment for pilot, usage-based serverless, no 24/7 GPU endpoint, no multi-region active-active, and excluding taxes, staff, outside services, payment processing and carrier/insurance costs. Actual prices vary by region, request size, retention, model, free-tier eligibility and service configurations. Use the [AWS Pricing Calculator](https://calculator.aws/) with actual assumptions before committing spend. Official pricing: [API Gateway](https://aws.amazon.com/api-gateway/pricing/), [Lambda](https://aws.amazon.com/lambda/pricing/), [S3](https://aws.amazon.com/s3/pricing/), [DynamoDB](https://aws.amazon.com/dynamodb/pricing/), [SQS](https://aws.amazon.com/sqs/pricing/), [Bedrock](https://aws.amazon.com/bedrock/pricing/), [CloudWatch](https://aws.amazon.com/cloudwatch/pricing/), [SageMaker](https://aws.amazon.com/sagemaker/pricing/).
+
+| Cost scenario | Pilot: ~100 cases/month | Early production: ~1,000 cases/month | Growth: ~10,000 cases/month |
+|---|---:|---:|---:|
+| API, Lambda, queues, DynamoDB, storage, basic logs | $10–$60 | $40–$250 | $250–$1,500 |
+| AI evidence triage (budget cap, optional) | $0–$30 | $20–$250 | $200–$2,000 |
+| Security, secrets, monitoring, backups, domain and incident allowances | $15–$100 | $60–$350 | $250–$1,500 |
+| **Indicative AWS subtotal** | **$25–$190** | **$120–$850** | **$700–$5,000** |
+| Human review (example 15–45 minutes/case × $25–$60 loaded hourly) | $625–$4,500 | $6,250–$45,000 | $62,500–$450,000 |
+
+The human-review row is a **scenario calculation**, not a supplier quote: 100 cases × 0.25 hours × $25 = $625; 100 × 0.75 hours × $60 = $4,500. It shows why review operations, image acquisition, claims exposure and model validation may dominate AWS hosting. At 1,000 cases/month, 30 minutes × $35/hour = **$17.50 review labor per case** before overhead, shipping or AI. A $25 retail review fee would leave only $7.50 before all other costs. These figures are for planning, not predictions.
+
+**Suggested initial budget controls:** start with an AWS monthly budget alert at **$50**, an escalation alert at **$150**, and a review threshold at **$300** for a pilot. AWS Budgets alerts do not automatically stop spending. Set Bedrock request quotas, token/image limits, maximum uploaded evidence, SQS concurrency, Lambda reserved concurrency, log retention, S3 lifecycle, and per-tenant monthly case caps. Require approval before enabling high-cost inference, dedicated GPU endpoints, multi-region replication, provisioned concurrency, NAT gateways, or advanced WAF configurations. Some protective services have their own minimum or per-rule fees; do not omit them from a production estimate.
+
+**Unit-economics worksheet (calculate per cohort):** `revenue/case – reviewer minutes × loaded hourly rate / 60 – model cost/case – evidence storage and API cost/case – payment fees – customer support – expected rework – shipping/insurance subsidy – expected dispute/guarantee loss`. Model the 50th, 90th and 99th percentile review duration. A guarantee must be actuarially and legally assessed, not copied from a competitor's marketing.
+
+### 5. Investment ranges beyond AWS (illustrative planning, not quotes)
+
+| Workstream | Lean pilot budget range | Why it matters |
+|---|---:|---|
+| Security, platform hardening and external testing | $5,000–$30,000 one-time | Prevent fraudulent approvals, breaches, cross-tenant leakage |
+| Storefront engineering, compatibility QA and app reviews | $10,000–$60,000 one-time | Reliable installation and lifecycle behavior on all three platforms |
+| Qualified authenticators and operating procedures | $5,000–$30,000 setup plus per-case labor | Real decision authority and consistent review quality |
+| Rights-cleared reference imagery, acquisition and labeling | $10,000–$100,000+ | Defensible AI training and validation; may be far more for broad brand coverage |
+| Category-specific ML experiments and blind evaluation | $15,000–$100,000+ | Measurable discrimination rather than plausible visual descriptions |
+| Legal, privacy, shipping, insurance and dispute design | $5,000–$40,000+ | Claims, consent, retention, brand/IP and physical custody exposure |
+| Initial merchant acquisition and usability research | $2,000–$25,000 | Find viable segments and verify willingness to pay |
+
+These are **model-generated planning ranges**, not sourced market rates. A realistic lean differentiation strategy is to begin with **one product category and a small number of brands**, expert-assisted remote review, and a transparent no-decision state, then expand only after reference-data coverage and blinded accuracy justify it. Broad luxury authentication with strong guarantees is a substantially larger undertaking than deploying AWS services.
+
+### 6. Best technical differentiators and decision criteria
+
+1. **One verification authority, three commerce platforms:** consistent IDs, statuses, design tokens, and APIs; no seller-issued approvals.
+2. **Risk-adaptive capture:** guided photo checklist changes by category, brand, material, condition and known failure modes; require physical examination where needed.
+3. **Two-stage AI:** inexpensive image-quality/completeness model first; optional specialist authenticity model only on eligible, well-documented categories; human review for all consequential decisions until validated policy permits otherwise.
+4. **Item-level evidence provenance:** hashes, capture timestamps, device/session metadata where consented, duplicate image detection, item matching, chain-of-custody events, and decision trace.
+5. **Revocable signed certificate:** verifiable issuer key, canonical item reference, issuance/expiry, current status and reason-coded revocation; never promise counterfeit-proof QR/NFC.
+6. **Open merchant API and portable status:** Shopify, WooCommerce, Magento, and future integrations can consume the same public status contract without exposing private documents.
+7. **Trust and measured outcomes:** publish coverage limits, inconclusive rate, turnaround distribution, blinded error rates, dispute resolution and independent audits, rather than a fabricated headline accuracy figure.
+8. **Cost-per-case discipline:** charge for expert review and optional shipment; avoid calling expensive models on every badge view; cache public non-sensitive reads with short TTL and revocation invalidation.
+
+### 7. Technology alternatives — research only, not added dependencies
+
+The **deployment target remains AWS-only**. Evaluate the following only if independent tests show measurable improvement: (a) specialist imaging devices or macro lenses for controlled capture; (b) accredited physical authenticators and independent labs; (c) legally licensed reference-image providers and manufacturer verification partnerships; (d) independent security and model-evaluation labs; (e) optional third-party messaging/video/insurance carriers where AWS-native services do not meet operational needs. These are **potential integrations**, not installed components or asserted partnerships. Any change requires vendor due diligence, a data processing agreement where relevant, privacy/security review, a documented fallback, and an explicit cost-benefit decision.
+
+### 8. Implementation order, sprint alignment and release criteria
+
+| Phase | Sprint alignment | Release gate |
+|---|---|---|
+| Foundations | 00–02 | Tenancy, API schemas, threat model, budgets, design tokens, public record policy |
+| Commerce adapters | 03–05 | Shopify/WooCommerce/Magento sandbox lifecycle tests, webhook replay and idempotency, status consistency |
+| Evidence and reviewer operations | 06–08 | S3 ingestion security, consent, auditability, reviewer decisions, guided capture, dispute flow |
+| AI and trust | 09–10 | Quality triage metrics, licensed reference set, blind validation plan, certificate signing and revocation |
+| Pilot and scale | 11–12 | Security assessment, recovery drills, usability testing, real merchant pilot, cost-per-case reporting, go/no-go |
+
+**Required documentation cross-links:** [Architecture](project-management/planning/ARCHITECTURE.md), [API contract](project-management/planning/API_CONTRACT.md), [PRD](project-management/planning/PRD.md), [Roadmap](project-management/planning/ROADMAP.md), [Security and privacy](project-management/operations/SECURITY_PRIVACY.md), [Authentication operations](project-management/operations/AUTHENTICATION_OPERATIONS.md), [Test strategy](project-management/quality/TEST_STRATEGY.md), [Release checklist](project-management/quality/RELEASE_CHECKLIST.md), [Unit economics](project-management/business/UNIT_ECONOMICS.md), and [Sprints](project-management/delivery/SPRINTS.md).
+
+**Launch decision:** release a *pilot review service* only after P0 security and merchant-status gates pass and a staffed decision process exists. Do not market *AI-authenticated products* until model accuracy is independently established for the exact supported categories, with false-acceptance controls, drift monitoring, expert escalation, and an audited certificate lifecycle. Re-evaluate infrastructure and costs monthly using actual AWS Cost Explorer data and per-case time tracking.
+
+---
+
 ## The MaisonProof promise
 
 **MaisonProof is the independent authentication authority behind the seal.** Merchants submit individual products to MaisonProof for assessment. MaisonProof reviews the item and available evidence using its own controlled authentication process, makes an item-specific decision, and issues an approval record only when its authentication requirements are met. **The green checkmark appears in the bottom-right corner of the product image only after the MaisonProof service confirms that the item has a current, valid MaisonProof approval.** Hovering or clicking the seal reveals a **View MaisonProof Verification** action that opens the item’s record on a verified MaisonProof-controlled domain.
@@ -182,3 +290,10 @@ Merchant analytics and conversion measurement
 ![MaisonProof Merchant analytics: Merchant analytics and conversion measurement](project-management/design/wireframes/10-analytics.svg)
 
 See the [delivery plan](project-management/delivery/SPRINTS.md), [product requirements](project-management/planning/PRD.md), [design handoff](project-management/design/FIGMA_HANDOFF.md), and [project hub](project-management/README.md).
+
+
+## Competitive AI authentication — investment and operating model infographic
+
+![MaisonProof competitive AI authentication investment, AWS costs, reviewer labor, solo-founder capacity, and platform workflow](assets/maisonproof-ai-competition-investment-infographic.png)
+
+*Illustrative estimates, not vendor quotations, validated accuracy claims, or guarantees.* A narrow AI-assisted pilot is estimated at **$15,000–$40,000** in development spending, while broad multi-category competition could require **$150,000–$500,000+**. Illustrative AWS monthly budgets are **$25–$190 for 100 cases**, **$120–$850 for 1,000**, and **$700–$5,000 for 10,000**, excluding reviewer labor and major data acquisition. Trained reviewers are budgeted at **$20–$40/hour**, and senior specialists at **$40–$75+/hour**. At $30/hour, a 10-minute review costs approximately **$5** in direct labor. A solo operator could handle early volumes, but must account for escalations, customer support, security, and independent authenticity validation. AI triage is not proof of authenticity; signed certificates and verified claims require controlled decisions and audit evidence.
