@@ -154,3 +154,5 @@ final class MaisonProof_Woo {
 add_action('plugins_loaded',function(){MaisonProof_Woo::init();});
 add_action('init',function(){register_post_type('mp_submission',['label'=>'MaisonProof Submissions','public'=>false,'show_ui'=>true,'show_in_menu'=>'edit.php?post_type=mp_record','supports'=>['title'],'capabilities'=>['create_posts'=>'do_not_allow'],'map_meta_cap'=>true]);},11);
 add_action('wp_head',function(){if(!class_exists('WooCommerce'))return;$pos=get_option('mp_badge_position','top-right');$vertical=strpos($pos,'bottom')===0?'bottom:12px;':'top:12px;';$horizontal=substr($pos,-4)==='left'?'left:12px;':'right:12px;';echo '<style>.mp-single-seal,.mp-loop-seal{'.esc_html($vertical.$horizontal).'}</style>';});
+
+require_once __DIR__ . "/includes/central-sync.php";

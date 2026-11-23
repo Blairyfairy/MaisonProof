@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: MaisonProof central verification API - serverless MVP
+Parameters:
+  StoreKey:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+  ReviewerKey:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+  AllowedOrigin:
+    Type: String
+    Default: 'https://example.com'
+Resources:
+  Records:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - {AttributeName: pk, AttributeType: S}
+      KeySchema:
+        - {AttributeName: pk, KeyType: HASH}
+      PointInTimeRecoverySpecification: {PointInTimeRecoveryEnabled: true}
+  Api:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins: [!Ref AllowedOrigin]
+        AllowHeaders: ['content-type','x-mp-store','x-mp-timestamp','x-mp-signature','x-mp-reviewer-key','idempotency-key']
+        AllowMethods: [GET,POST,OPTIONS]
+  Handler:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: service/
+      Handler: app.handler
+      Runtime: python3.12
+      Architectures: [arm64]
+      Timeout: 10
+      MemorySize: 128
+      Environment:
+        Variables:
+          TABLE: !Ref Records
+          STORE_KEY: !Ref StoreKey
+          REVIEWER_KEY: !Ref ReviewerKey
+      Policies:
+        - DynamoDBCrudPolicy: {TableName: !Ref Records}
+      Events:
+        Submit: {Type: HttpApi, Properties: {ApiId: !Ref Api, Path: /v1/submissions, Method: POST}}
+        Status: {Type: HttpApi, Properties: {ApiId: !Ref Api, Path: /v1/records/{id}, Method: GET}}
+        Decision: {Type: HttpApi, Properties: {ApiId: !Ref Api, Path: /v1/records/{id}/decision, Method: POST}}
+Outputs:
+  ApiUrl: {Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.amazonaws.com'}

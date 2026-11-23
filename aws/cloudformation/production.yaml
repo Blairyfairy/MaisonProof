@@ -1,0 +1,289 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: MaisonProof low-idle-cost central authentication API (production-oriented foundation)
+Parameters:
+  Environment:
+    Type: String
+    Default: production
+    AllowedValues: [staging, production]
+  ArtifactBucket:
+    Type: String
+    Description: Existing private S3 bucket containing Lambda deployment ZIP files
+  ApiArtifactKey:
+    Type: String
+    Default: maisonproof/api.zip
+  WorkerArtifactKey:
+    Type: String
+    Default: maisonproof/worker.zip
+  StoreSigningSecretArn:
+    Type: String
+    Description: Existing Secrets Manager ARN for HMAC store key (at least 32 random bytes)
+  ReviewerUserPoolId:
+    Type: String
+    Description: Existing Cognito user pool ID for reviewer login
+  ReviewerAppClientId:
+    Type: String
+    Description: Existing Cognito app client ID with authorization code + PKCE
+  AllowedOrigin:
+    Type: String
+    Default: https://example.com
+  AlarmEmail:
+    Type: String
+    Default: ''
+  EnableAlarms:
+    Type: String
+    Default: 'true'
+    AllowedValues: ['true','false']
+Conditions:
+  CreateAlarm: !Equals [!Ref EnableAlarms, 'true']
+  HasEmail: !Not [!Equals [!Ref AlarmEmail, '']]
+Resources:
+  Records:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      PointInTimeRecoverySpecification: {PointInTimeRecoveryEnabled: true}
+      SSESpecification: {SSEEnabled: true}
+      AttributeDefinitions:
+        - {AttributeName: pk, AttributeType: S}
+        - {AttributeName: sk, AttributeType: S}
+      KeySchema:
+        - {AttributeName: pk, KeyType: HASH}
+        - {AttributeName: sk, KeyType: RANGE}
+  Evidence:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: {SSEAlgorithm: AES256}
+      VersioningConfiguration: {Status: Enabled}
+      LifecycleConfiguration:
+        Rules:
+          - Id: AbortMultipart
+            Status: Enabled
+            AbortIncompleteMultipartUpload: {DaysAfterInitiation: 7}
+  EvidenceBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Evidence
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: RequireTLS
+            Effect: Deny
+            Principal: '*'
+            Action: 's3:*'
+            Resource: [!GetAtt Evidence.Arn, !Sub '${Evidence.Arn}/*']
+            Condition: {Bool: {'aws:SecureTransport': 'false'}}
+  DeadLetterQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      MessageRetentionPeriod: 1209600
+      SqsManagedSseEnabled: true
+  SubmissionQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      VisibilityTimeout: 90
+      SqsManagedSseEnabled: true
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt DeadLetterQueue.Arn
+        maxReceiveCount: 5
+  ApiRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: lambda.amazonaws.com}
+            Action: sts:AssumeRole
+      ManagedPolicyArns: [arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole]
+      Policies:
+        - PolicyName: MaisonProofApiLeastPrivilege
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:UpdateItem, dynamodb:TransactWriteItems]
+                Resource: !GetAtt Records.Arn
+              - Effect: Allow
+                Action: [sqs:SendMessage]
+                Resource: !GetAtt SubmissionQueue.Arn
+              - Effect: Allow
+                Action: [secretsmanager:GetSecretValue]
+                Resource: !Ref StoreSigningSecretArn
+              - Effect: Allow
+                Action: [s3:PutObject, s3:GetObject]
+                Resource: !Sub '${Evidence.Arn}/*'
+  WorkerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: lambda.amazonaws.com}
+            Action: sts:AssumeRole
+      ManagedPolicyArns: [arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole]
+      Policies:
+        - PolicyName: QueueAndRecordAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: [sqs:ReceiveMessage, sqs:DeleteMessage, sqs:GetQueueAttributes]
+                Resource: !GetAtt SubmissionQueue.Arn
+              - Effect: Allow
+                Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:UpdateItem]
+                Resource: !GetAtt Records.Arn
+  ApiFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: app.handler
+      Role: !GetAtt ApiRole.Arn
+      Code: {S3Bucket: !Ref ArtifactBucket, S3Key: !Ref ApiArtifactKey}
+      Timeout: 15
+      MemorySize: 256
+      ReservedConcurrentExecutions: 20
+      Environment:
+        Variables:
+          TABLE: !Ref Records
+          QUEUE_URL: !Ref SubmissionQueue
+          EVIDENCE_BUCKET: !Ref Evidence
+          STORE_SECRET_ARN: !Ref StoreSigningSecretArn
+          REVIEWER_POOL_ID: !Ref ReviewerUserPoolId
+          REVIEWER_CLIENT_ID: !Ref ReviewerAppClientId
+          AWS_REGION_NAME: !Ref AWS::Region
+  WorkerFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: worker.handler
+      Role: !GetAtt WorkerRole.Arn
+      Code: {S3Bucket: !Ref ArtifactBucket, S3Key: !Ref WorkerArtifactKey}
+      Timeout: 30
+      MemorySize: 128
+      ReservedConcurrentExecutions: 5
+      Environment:
+        Variables: {TABLE: !Ref Records}
+  WorkerEventSource:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      EventSourceArn: !GetAtt SubmissionQueue.Arn
+      FunctionName: !Ref WorkerFunction
+      BatchSize: 5
+      FunctionResponseTypes: [ReportBatchItemFailures]
+  HttpApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: !Sub 'maisonproof-${Environment}'
+      ProtocolType: HTTP
+      CorsConfiguration:
+        AllowOrigins: [!Ref AllowedOrigin]
+        AllowMethods: [GET, POST, OPTIONS]
+        AllowHeaders: [content-type, authorization, x-mp-store, x-mp-timestamp, x-mp-signature, idempotency-key]
+        MaxAge: 300
+  ApiIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref HttpApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !GetAtt ApiFunction.Arn
+      PayloadFormatVersion: '2.0'
+  ApiRouteSubmit:
+    Type: AWS::ApiGatewayV2::Route
+    Properties: {ApiId: !Ref HttpApi, RouteKey: 'POST /v1/submissions', Target: !Sub 'integrations/${ApiIntegration}'}
+  ApiRouteStatus:
+    Type: AWS::ApiGatewayV2::Route
+    Properties: {ApiId: !Ref HttpApi, RouteKey: 'GET /v1/records/{id}', Target: !Sub 'integrations/${ApiIntegration}'}
+  ReviewerAuthorizer:
+    Type: AWS::ApiGatewayV2::Authorizer
+    Properties:
+      ApiId: !Ref HttpApi
+      AuthorizerType: JWT
+      IdentitySource: ['$request.header.Authorization']
+      Name: CognitoReviewerJWT
+      JwtConfiguration:
+        Audience: [!Ref ReviewerAppClientId]
+        Issuer: !Sub 'https://cognito-idp.${AWS::Region}.amazonaws.com/${ReviewerUserPoolId}'
+  ApiRouteDecision:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref HttpApi
+      RouteKey: 'POST /v1/records/{id}/decision'
+      Target: !Sub 'integrations/${ApiIntegration}'
+      AuthorizationType: JWT
+      AuthorizerId: !Ref ReviewerAuthorizer
+  ApiStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref HttpApi
+      StageName: '$default'
+      AutoDeploy: true
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 30
+        ThrottlingRateLimit: 15
+  ApiInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ApiFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${HttpApi}/*/*'
+  AlarmTopic:
+    Type: AWS::SNS::Topic
+    Condition: CreateAlarm
+  AlarmSubscription:
+    Type: AWS::SNS::Subscription
+    Condition: HasEmail
+    Properties:
+      TopicArn: !Ref AlarmTopic
+      Protocol: email
+      Endpoint: !Ref AlarmEmail
+  QueueAgeAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Condition: CreateAlarm
+    Properties:
+      AlarmDescription: Submission queue oldest message exceeds five minutes
+      Namespace: AWS/SQS
+      MetricName: ApproximateAgeOfOldestMessage
+      Dimensions: [{Name: QueueName, Value: !GetAtt SubmissionQueue.QueueName}]
+      Statistic: Maximum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 300
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlarmTopic]
+  DeadLetterAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Condition: CreateAlarm
+    Properties:
+      Namespace: AWS/SQS
+      MetricName: ApproximateNumberOfMessagesVisible
+      Dimensions: [{Name: QueueName, Value: !GetAtt DeadLetterQueue.QueueName}]
+      Statistic: Maximum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 0
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlarmTopic]
+Outputs:
+  ApiUrl:
+    Value: !Sub 'https://${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}'
+  EvidenceBucketName: {Value: !Ref Evidence}
+  RecordsTableName: {Value: !Ref Records}
+  SubmissionQueueUrl: {Value: !Ref SubmissionQueue}
+  DeadLetterQueueUrl: {Value: !Ref DeadLetterQueue}
