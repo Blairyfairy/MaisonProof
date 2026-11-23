@@ -1,0 +1,11 @@
+priority,workstream,deliverable,suggested_owner,risk,status
+P0,Trust,Enforce demo vs production status,Security,Critical,Pending
+P0,Trust,Implement signed record and revocation,Engineering,Critical,Pending
+P0,Discovery,Conduct merchant interviews,Product,High,Pending
+P0,Legal,Review consumer claims and image rights,Legal,Critical,Pending
+P0,Operations,Qualify authenticators and logistics vendors,Operations,Critical,Pending
+P1,Commercial,Run paid pilot pricing test,Product/Finance,High,Pending
+P1,Measurement,Implement event taxonomy,Data/Engineering,High,Pending
+P1,UX,Test badge comprehension,Design,High,Pending
+P1,Delivery,Estimate roadmap and assign owners,Product/Engineering,High,Pending
+P2,Growth,Evaluate partner acquisition,Growth,Medium,Pending
