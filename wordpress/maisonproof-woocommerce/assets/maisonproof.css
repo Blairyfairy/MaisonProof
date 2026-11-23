@@ -1,0 +1,12 @@
+/* MaisonProof brand: navy #152d4c, champagne gold #d6ad66, white. */
+.woocommerce div.product div.images,.woocommerce ul.products li.product{position:relative}
+.mp-single-seal,.mp-loop-seal{position:absolute;z-index:15;pointer-events:none}
+.mp-seal{pointer-events:auto;display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border:1px solid #d6ad66;border-radius:5px;background:#152d4c;color:#fff!important;box-shadow:0 2px 12px rgba(0,0,0,.18);font:600 10px/1.1 system-ui,sans-serif;text-decoration:none!important;letter-spacing:.055em;max-width:175px}
+.mp-seal:hover,.mp-seal:focus-visible{background:#233d61;color:#fff!important;outline:2px solid #d6ad66;outline-offset:2px}
+.mp-seal-m{font:bold 25px/1 Georgia,serif;color:#d6ad66;letter-spacing:-.08em}
+.mp-seal-text{white-space:nowrap}.mp-seal-text small{font-size:9px;letter-spacing:.14em;color:#fff}
+.mp-lookup,.mp-submit{max-width:650px;padding:20px;border:1px solid #cad6e4;border-radius:8px;background:#f6f9fd;color:#152d4c}
+.mp-lookup label,.mp-submit label{display:block;margin:12px 0;font-weight:600}.mp-lookup-form{display:flex;gap:8px;flex-wrap:wrap}
+.mp-lookup input,.mp-submit select,.mp-submit textarea,.mp-submit input{display:block;max-width:100%;width:100%;padding:9px;border:1px solid #91a5bf;border-radius:4px}
+.mp-lookup button,.mp-submit button{padding:9px 16px;background:#152d4c;color:#fff;border:0;border-radius:4px;cursor:pointer}
+.mp-record{margin-top:18px;padding:14px;border-left:4px solid #d6ad66;background:white}
