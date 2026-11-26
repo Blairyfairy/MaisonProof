@@ -23,6 +23,8 @@ MaisonProof's proposed business model is to help independent merchants retain th
 
 > **Status and evidence boundary.** This section is a forward-looking technical and commercial plan, **not** evidence that MaisonProof already authenticates luxury goods with AI or outperforms Entrupy, LegitApp, or another provider. The original repository is an MVP/scaffold. The subsequent three-platform/AWS enhancement packages provide additional integration and infrastructure foundations, but no live AWS deployment, complete Shopify OAuth lifecycle, independently validated counterfeit classifier, real authentication accuracy, or qualified production review operation is established by the materials inspected. Do not advertise accuracy, insurance coverage, brand partnerships, guaranteed turnaround, or production readiness without verification.
 
+![MaisonProof minimum viable product and commercial opportunity](assets/MVP.webp)
+
 ### 1. The actual competitive objective
 
 Compete on **merchant ownership and multi-platform interoperability**, **evidence transparency**, **item-bound and revocable certificates**, **human-accountable decisions**, **fast guided capture**, and **measured low total cost per accepted case**. Entrupy's public process uses guided photography, brand/material selection, AI and expert review; it advertises 99.86% accuracy and a financial guarantee. These are **vendor claims**, not directly comparable to MaisonProof without a common blinded test set, matched category mix and decision policy. Source: [Entrupy's process and accuracy claims](https://www.entrupy.com/how-to-use/). Avoid implying that a generic multimodal LLM's description of an image proves authenticity.
@@ -46,6 +48,8 @@ Compete on **merchant ownership and multi-platform interoperability**, **evidenc
 | Reliability | CloudWatch alarms, SNS, backup/PITR, deployment pipelines | RTO/RPO targets, restore drills, DLQ alerts, security regression tests, rollback, SLO dashboards | Begin single region; multi-region only after business justification |
 
 **Important security choices:** Shopify webhooks must validate Shopify's HMAC over the raw request body; Shopify app installation must use the current supported authorization/session-token approach. WooCommerce and Magento must sign outgoing requests with distinct merchant secrets and timestamps/nonces, and rotate credentials. Do not expose write credentials in themes, product HTML, or browser-side JavaScript. For public verification, a certificate signature is not enough: always check live revocation and item binding.
+
+![MaisonProof AWS infrastructure architecture](assets/AWSInfrastructureDiagram.webp)
 
 ### 3. What must be built before claiming competitive parity
 
