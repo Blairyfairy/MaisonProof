@@ -35,3 +35,6 @@ Development module for Magento 2.4.x. Displays a MaisonProof badge on verified p
 - Verify non-admin users cannot access admin record management.
 - Verify admin CSRF/form key and input handling.
 - Check theme-specific product-image rendering and cache behavior.
+
+## MaisonProof branded status artwork
+The supplied full logo, white logo and VERIFIED / NOT VERIFIED artwork are bundled locally. Standalone M icons are unchanged. VERIFIED is reserved for the existing approved-record check; other states display NOT VERIFIED. View Record links require an available record identifier; without one the artwork is informational. The badge is not a manufacturer warranty. Existing platform deployment and central API prerequisites still apply.

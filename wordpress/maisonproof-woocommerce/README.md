@@ -48,3 +48,6 @@ A working WordPress/WooCommerce plugin starter with **controlled status records,
 `assets/maisonproof.css` — storefront styles
 
 `assets/maisonproof-logo.svg` — original MaisonProof brand logo asset from the existing repo (not modified)
+
+## MaisonProof branded status artwork
+The supplied full logo, white logo and VERIFIED / NOT VERIFIED artwork are bundled locally. Standalone M icons are unchanged. VERIFIED is reserved for the existing approved-record check; other states display NOT VERIFIED. View Record links require an available record identifier; without one the artwork is informational. The badge is not a manufacturer warranty. Existing platform deployment and central API prerequisites still apply.

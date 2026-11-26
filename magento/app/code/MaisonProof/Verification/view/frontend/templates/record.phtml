@@ -3,7 +3,7 @@
 $d=(array)$block->getData('record_data');$status=(string)($d['status']??'not_found');
 ?>
 <section class="maisonproof-record mp-ui"><div class="mp-shell"><header class="mp-head"><img class="mp-logo" src="<?= $block->escapeUrl($block->getViewFileUrl('MaisonProof_Verification::images/maisonproof-logo.svg')) ?>" alt="MaisonProof Authentication Authority"></header><div class="mp-kicker">Independent record lookup</div><h1>MaisonProof Verification</h1>
-<p class="maisonproof-record-status">Status: <strong><?= $block->escapeHtml(strtoupper(str_replace('_',' ',$status))) ?></strong></p>
+<img class="mp-status-image" src="<?= $block->escapeUrl($block->getViewFileUrl('MaisonProof_Verification::images/maisonproof-'.($status==='verified'?'verified':'not-verified').'.png')) ?>" alt="<?= $status==='verified'?'Verified':'Not verified' ?>"><p class="maisonproof-record-status">Status: <strong><?= $block->escapeHtml(strtoupper(str_replace('_',' ',$status))) ?></strong></p>
 <?php if ($status !== 'not_found'): ?>
 <p>Record: <code><?= $block->escapeHtml($d['public_id']??'') ?></code></p>
 <p>Last updated: <?= $block->escapeHtml($d['updated_at']??'') ?> UTC</p>

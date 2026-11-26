@@ -1,7 +1,7 @@
 {% comment %} Render within the product image/media wrapper to position bottom-right. Set metafield maisonproof.record_id. Replace domain with your verified domain. {% endcomment %}
 {% assign lp_id = product.metafields.maisonproof.record_id.value %}
 {% if lp_id != blank %}
-  <a hidden class="maisonproof-badge" href="https://maisonproof.org/verify/{{ lp_id | url_encode }}" target="_blank" rel="noopener noreferrer" title="View MaisonProof verification record" aria-label="View MaisonProof verification record">✓ Vetted by MaisonProof</a>
+  <a hidden class="maisonproof-badge" href="https://maisonproof.org/verify/{{ lp_id | url_encode }}" target="_blank" rel="noopener noreferrer" title="View MaisonProof verification record" aria-label="View MaisonProof verification record"><img src="{{ 'maisonproof-verified.png' | asset_url }}" width="220" style="max-width:100%;height:auto" alt="Verified — View record"></a>
   <script>
   (function(){
     const id = {{ lp_id | json }};

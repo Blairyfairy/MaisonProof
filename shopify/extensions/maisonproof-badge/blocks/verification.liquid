@@ -25,9 +25,16 @@
         {% endcase %}
       </span>
     </div>
+    {% if mp_status == 'verified' %}
+      {% assign mp_art = 'maisonproof-verified.png' %}
+    {% else %}
+      {% assign mp_art = 'maisonproof-not-verified.png' %}
+    {% endif %}
     {% if mp_record != blank %}
+      <a href="https://maisonproof.org/verify/{{ mp_record | url_encode }}" target="_blank" rel="noopener noreferrer"><img src="{{ mp_art | asset_url }}" width="320" style="max-width:100%;height:auto" alt="{{ mp_status | escape }} — View record"></a>
       <p class="mp-muted">MaisonProof record {{ mp_record | escape | truncate: 22 }}</p>
     {% else %}
+      <img src="{{ mp_art | asset_url }}" width="320" style="max-width:100%;height:auto" alt="Not verified — no record">
       <p class="mp-muted">No independently verified MaisonProof record is associated with this product.</p>
     {% endif %}
   </div>

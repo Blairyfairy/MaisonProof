@@ -11,3 +11,6 @@ The Shopify CLI project requires a Partner/Dev Dashboard app, HTTPS application 
 6. Reconcile status on revocation, uninstall and webhook delivery failures. Validate data erasure and app privacy requirements.
 
 **Not production-ready:** OAuth app host, Admin API metafield sync, webhook registration lifecycle, mandatory compliance webhooks, uninstall handling, and end-to-end testing remain required. The theme block is functional as a display-only status component once its metafield exists.
+
+## MaisonProof branded status artwork
+The supplied full logo, white logo and VERIFIED / NOT VERIFIED artwork are bundled locally. Standalone M icons are unchanged. VERIFIED is reserved for the existing approved-record check; other states display NOT VERIFIED. View Record links require an available record identifier; without one the artwork is informational. The badge is not a manufacturer warranty. Existing platform deployment and central API prerequisites still apply.

@@ -10,3 +10,5 @@
 .mp-lookup input,.mp-submit select,.mp-submit textarea,.mp-submit input{display:block;max-width:100%;width:100%;padding:9px;border:1px solid #91a5bf;border-radius:4px}
 .mp-lookup button,.mp-submit button{padding:9px 16px;background:#152d4c;color:#fff;border:0;border-radius:4px;cursor:pointer}
 .mp-record{margin-top:18px;padding:14px;border-left:4px solid #d6ad66;background:white}
+
+.mp-seal,.mp-seal:hover{background:transparent;border:0;padding:0;box-shadow:none;max-width:220px}.mp-status-image{display:block;width:220px;max-width:100%;height:auto}

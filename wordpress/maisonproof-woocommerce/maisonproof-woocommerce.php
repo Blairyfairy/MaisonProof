@@ -53,7 +53,7 @@ final class MaisonProof_Woo {
   echo '<div class="mp-kicker">Authentication operations</div><h1>Merchant verification workspace</h1><p class="mp-muted">MaisonProof branding and product authentication controls. A published product is not automatically verified.</p>';
   echo '<div class="mp-grid"><section class="mp-card"><img class="mp-mark" src="'.esc_url($mark).'" alt=""><h2>Verification records</h2><p>'.esc_html((string)$total).' published local records</p><a class="mp-button" href="'.esc_url(admin_url('edit.php?post_type=mp_record')).'">Manage records</a></section>';
   echo '<section class="mp-card"><h2>Product publishing</h2><p class="mp-muted">Storefront products are submitted as pending. Only approved decisions can produce a verified badge.</p><a class="mp-button" href="'.esc_url(admin_url('edit.php?post_type=product')).'">View products</a></section>';
-  echo '<section class="mp-card"><h2>Brand assets</h2><p class="mp-muted">Shared gold M monogram, MaisonProof wordmark, accessible badges and responsive components.</p><span class="mp-badge" data-status="pending">Brand system installed</span></section></div>';
+  echo '<section class="mp-card"><h2>Brand assets</h2><p class="mp-muted">Shared gold M monogram and approved MaisonProof artwork. VERIFIED requires a linked, published, unexpired approved record. NOT VERIFIED covers missing, pending, rejected, revoked or expired records. View Record opens the public lookup when a matching record exists.</p><span class="mp-badge" data-status="pending">Brand system installed</span></section></div>';
   echo '<p class="mp-footer">Visual dashboard only; it does not replace central reviewer authorization or attest to live API connectivity.</p></div></div>';
  }
 
@@ -119,9 +119,11 @@ final class MaisonProof_Woo {
  public static function product_field(){if(!function_exists('woocommerce_wp_text_input'))return;woocommerce_wp_text_input(['id'=>self::META,'label'=>'MaisonProof record ID','description'=>'Must match a published MaisonProof record linked to this product. Merchants cannot approve records.','desc_tip'=>true]);}
  public static function save_product_field($product){if(!current_user_can('edit_post',$product->get_id()))return;$id=isset($_POST[self::META])?sanitize_text_field(wp_unslash($_POST[self::META])):'';if($id===''||preg_match('/^[A-Za-z0-9_-]{4,80}$/',$id))$product->update_meta_data(self::META,$id);}
  public static function badge($product_id){
-  $post=self::product_record($product_id);if(!self::verified($post))return '';
-  $id=get_post_meta($post->ID,'_mp_id',true);
-  return '<a class="mp-seal" href="'.esc_url(self::lookup_url($id)).'" aria-label="View MaisonProof verification record '.esc_attr($id).'" title="View independent verification record"><span class="mp-seal-m" aria-hidden="true">M</span><span class="mp-seal-text">MAISONPROOF<br><small>VERIFIED</small></span></a>';
+  $post=self::product_record($product_id);$active=self::verified($post);
+  $id=$post?get_post_meta($post->ID,'_mp_id',true):'';
+  $img='<img class="mp-status-image" src="'.esc_url(plugins_url('assets/maisonproof-'.($active?'verified':'not-verified').'.png',__FILE__)).'" alt="'.($active?'Verified':'Not verified').' — View record">';
+  if(!$id)return '<span class="mp-seal" title="No matching record">'.$img.'</span>';
+  return '<a class="mp-seal" href="'.esc_url(self::lookup_url($id)).'" aria-label="View MaisonProof verification record '.esc_attr($id).'" title="View independent verification record">'.$img.'</a>';
  }
  public static function single_badge(){global $product;if(!$product||!is_a($product,'WC_Product'))return;$badge=self::badge($product->get_id());if($badge)echo '<div class="mp-single-seal">'.$badge.'</div>';}
  public static function loop_badge(){global $product;if(!$product||!is_a($product,'WC_Product'))return;$badge=self::badge($product->get_id());if($badge)echo '<div class="mp-loop-seal">'.$badge.'</div>';}
@@ -129,7 +131,7 @@ final class MaisonProof_Woo {
  public static function styles(){if(!class_exists('WooCommerce'))return;wp_enqueue_style('maisonproof-woo',plugins_url('assets/maisonproof.css',__FILE__),[],self::VERSION);}
  public static function verify_shortcode($atts){
   $atts=shortcode_atts(['id'=>''],$atts);$id=$atts['id']?: (isset($_GET['mp_id'])?sanitize_text_field(wp_unslash($_GET['mp_id'])):'');
-  $out='<section class="mp-lookup"><h2>MaisonProof Verification Lookup</h2><form method="get"><label for="mp_lookup_id">Verification record ID</label><div class="mp-lookup-form"><input id="mp_lookup_id" name="mp_id" maxlength="80" required value="'.esc_attr($id).'"><button type="submit">Look up record</button></div></form>';
+  $out='<section class="mp-lookup"><img style="max-width:320px;width:100%;height:auto" src="'.esc_url(plugins_url('assets/maisonproof-logo.png',__FILE__)).'" alt="MaisonProof Authentication Authority"><h2>MaisonProof Verification Lookup</h2><form method="get"><label for="mp_lookup_id">Verification record ID</label><div class="mp-lookup-form"><input id="mp_lookup_id" name="mp_id" maxlength="80" required value="'.esc_attr($id).'"><button type="submit">Look up record</button></div></form>';
   if($id){$post=self::find($id);if(!$post)$out.='<p role="status">No published verification record found for this ID.</p>';
    else{$data=self::public_data($post);$out.='<div class="mp-record"><h3>Record '.esc_html($data['id']).'</h3><p><strong>Status:</strong> '.esc_html(strtoupper(str_replace('_',' ',$data['status']))).'</p><p><strong>Brand:</strong> '.esc_html($data['brand']).'</p><p><strong>Item:</strong> '.esc_html($data['model']).'</p><p><strong>Decision date:</strong> '.esc_html($data['decision_date']?:'Not issued').'</p>';
     if($data['expires'])$out.='<p><strong>Expiration:</strong> '.esc_html($data['expires']).'</p>';

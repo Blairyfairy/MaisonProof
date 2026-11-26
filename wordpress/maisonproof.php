@@ -18,7 +18,7 @@ add_action('woocommerce_before_single_product_summary', function () {
     $data = json_decode(wp_remote_retrieve_body($response), true);
     if (!is_array($data) || ($data['id'] ?? '') !== $id || ($data['status'] ?? '') !== 'authenticated' || ($data['badge_active'] ?? false) !== true) return;
     $url = trailingslashit($base) . 'verify/' . rawurlencode($id);
-    echo '<a class="maisonproof-badge" href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer" title="View MaisonProof verification record" aria-label="View MaisonProof verification record">✓ Vetted by MaisonProof</a>';
+    echo '<a class="maisonproof-badge" href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer" title="View MaisonProof verification record" aria-label="View MaisonProof verification record"><img style="width:220px;max-width:100%;height:auto" src="' . esc_url(plugins_url('maisonproof-woocommerce/assets/maisonproof-verified.png', __FILE__)) . '" alt="Verified — View record"></a>';
 }, 25);
 add_action('wp_head', function () {
     if (!function_exists('is_product') || !is_product()) return;
