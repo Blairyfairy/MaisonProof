@@ -23,13 +23,13 @@ MaisonProof's proposed business model is to help independent merchants retain th
 
 > **Status and evidence boundary.** This section is a forward-looking technical and commercial plan, **not** evidence that MaisonProof already authenticates luxury goods with AI or outperforms Entrupy, LegitApp, or another provider. The original repository is an MVP/scaffold. The subsequent three-platform/AWS enhancement packages provide additional integration and infrastructure foundations, but no live AWS deployment, complete Shopify OAuth lifecycle, independently validated counterfeit classifier, real authentication accuracy, or qualified production review operation is established by the materials inspected. Do not advertise accuracy, insurance coverage, brand partnerships, guaranteed turnaround, or production readiness without verification.
 
-![MaisonProof minimum viable product and commercial opportunity](assets/MVP.webp)
-
 ### 1. The actual competitive objective
 
 Compete on **merchant ownership and multi-platform interoperability**, **evidence transparency**, **item-bound and revocable certificates**, **human-accountable decisions**, **fast guided capture**, and **measured low total cost per accepted case**. Entrupy's public process uses guided photography, brand/material selection, AI and expert review; it advertises 99.86% accuracy and a financial guarantee. These are **vendor claims**, not directly comparable to MaisonProof without a common blinded test set, matched category mix and decision policy. Source: [Entrupy's process and accuracy claims](https://www.entrupy.com/how-to-use/). Avoid implying that a generic multimodal LLM's description of an image proves authenticity.
 
 **Required differentiated product:** a consistent MaisonProof-branded, accessibility-tested interface in Shopify, WooCommerce and Magento; two evidence routes (remote-guided and insured physical inspection, when operationally available); API-first case orchestration; seller-controlled catalog integration but MaisonProof-controlled decisions; transparent public verification and revocation; documented risk and evidence boundaries. Do not show a green authenticated badge for pending, inconclusive, disputed, revoked or unmatched items. Ensure item binding cannot be bypassed by a merchant editing a metafield.
+
+![MaisonProof minimum viable product and commercial opportunity](assets/MVP.png)
 
 ### 2. Target system and feature gates
 
@@ -49,8 +49,6 @@ Compete on **merchant ownership and multi-platform interoperability**, **evidenc
 
 **Important security choices:** Shopify webhooks must validate Shopify's HMAC over the raw request body; Shopify app installation must use the current supported authorization/session-token approach. WooCommerce and Magento must sign outgoing requests with distinct merchant secrets and timestamps/nonces, and rotate credentials. Do not expose write credentials in themes, product HTML, or browser-side JavaScript. For public verification, a certificate signature is not enough: always check live revocation and item binding.
 
-![MaisonProof AWS infrastructure architecture](assets/AWSInfrastructureDiagram.webp)
-
 ### 3. What must be built before claiming competitive parity
 
 | Priority | Deliverable | Acceptance test / proof |
@@ -67,6 +65,8 @@ Compete on **merchant ownership and multi-platform interoperability**, **evidenc
 | P2 | Enterprise compliance | Pen test, threat model, incident response exercise, privacy impact assessment, vendor due diligence, independent audit as needed |
 
 **Stop/go rule:** never auto-approve solely from a general-purpose vision model. Until an independently tested authenticity classifier and specialist operating process exist, use AI for **evidence quality triage and review assistance only**. No defensible percentage of competitor superiority can be claimed before controlled head-to-head measurement.
+
+![MaisonProof AWS infrastructure architecture](assets/AWSInfrastructureDiagram.png)
 
 ### 4. AWS spending: lean launch versus production
 
